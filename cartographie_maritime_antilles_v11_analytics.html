@@ -1056,6 +1056,7 @@
             initializeFilters();
             initializeSearch();
             loadGeoJSONRoutes(); // Charger les routes depuis export.geojson
+            loadFerryTerminals(); // Charger les embarcadères OSM
             switchTheme('local');
 
             console.log('✅ Maritime Analytics V11 - Prêt !');
@@ -1088,6 +1089,7 @@
             layers.ports = L.layerGroup().addTo(map);
             layers.routes = L.layerGroup().addTo(map);
             layers.geojsonRoutes = L.layerGroup().addTo(map); // Couche pour les routes GeoJSON
+            layers.ferryTerminals = L.layerGroup().addTo(map); // Couche pour les embarcadères OSM
 
             console.log('🗺️ Carte initialisée avec succès');
         }
@@ -1231,6 +1233,84 @@
                 .catch(error => {
                     console.error('❌ Erreur lors du chargement du GeoJSON:', error);
                     alert('Erreur lors du chargement des routes maritimes. Veuillez vérifier que le fichier export.geojson est présent.');
+                });
+        }
+
+        // ===== CHARGEMENT DES EMBARCADÈRES OSM =====
+        function loadFerryTerminals() {
+            console.log('📥 Chargement des embarcadères depuis caribbean_ferry_terminals.json...');
+
+            fetch('caribbean_ferry_terminals.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(`✅ Embarcadères chargés: ${data.total}`);
+
+                    // Créer un marqueur pour chaque embarcadère
+                    data.terminals.forEach(terminal => {
+                        // Seulement afficher ceux avec un nom
+                        if (terminal.name === 'Sans nom') return;
+
+                        const marker = L.circleMarker([terminal.lat, terminal.lon], {
+                            radius: 8,
+                            color: '#ffffff',
+                            weight: 2,
+                            fillColor: '#e74c3c',
+                            fillOpacity: 0.9,
+                            className: 'ferry-terminal-marker'
+                        });
+
+                        // Popup pour l'embarcadère
+                        const popupContent = `
+                            <div class="popup-header" style="background: #e74c3c;">
+                                <div class="popup-title">${terminal.name}</div>
+                                <div class="popup-subtitle">Embarcadère</div>
+                            </div>
+                            <div class="popup-content">
+                                <div class="popup-row">
+                                    <span class="popup-label">Zone:</span>
+                                    <span class="popup-value">${terminal.zone}</span>
+                                </div>
+                                <div class="popup-row">
+                                    <span class="popup-label">Coordonnées:</span>
+                                    <span class="popup-value">${terminal.lat.toFixed(6)}, ${terminal.lon.toFixed(6)}</span>
+                                </div>
+                                ${terminal.operator !== 'Non specifie' ? `
+                                <div class="popup-row">
+                                    <span class="popup-label">Opérateur:</span>
+                                    <span class="popup-value">${terminal.operator}</span>
+                                </div>
+                                ` : ''}
+                                ${terminal.wheelchair ? `
+                                <div class="popup-row">
+                                    <span class="popup-label">Accessibilité PMR:</span>
+                                    <span class="popup-value">${terminal.wheelchair === 'yes' ? '✓ Accessible' : '✗ Non accessible'}</span>
+                                </div>
+                                ` : ''}
+                                <div class="popup-row">
+                                    <span class="popup-label">Source:</span>
+                                    <span class="popup-value">OpenStreetMap (${terminal.osm_type}/${terminal.osm_id})</span>
+                                </div>
+                            </div>
+                        `;
+
+                        marker.bindPopup(popupContent, {
+                            maxWidth: 320,
+                            className: 'modern-popup'
+                        });
+
+                        layers.ferryTerminals.addLayer(marker);
+                    });
+
+                    console.log('✅ Embarcadères OSM affichés sur la carte');
+                })
+                .catch(error => {
+                    console.error('❌ Erreur lors du chargement des embarcadères:', error);
+                    // Ne pas alerter si le fichier n'existe pas (optionnel)
                 });
         }
 

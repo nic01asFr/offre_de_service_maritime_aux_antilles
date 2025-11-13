@@ -1,0 +1,1908 @@
+{
+  "timestamp": "2025-01-13",
+  "threshold_km": 5.0,
+  "total_problematic_routes": 55,
+  "routes": [
+    {
+      "name": "Scarborough - Port of Spain Ferry",
+      "osm_id": "way/719032174",
+      "operator": "Trinidad and Tobago Inter-Island Ferry Service",
+      "total_points": 53,
+      "total_distance_km": 152.76,
+      "long_segments": [
+        {
+          "segment_index": 13,
+          "from": [
+            -60.7255431,
+            11.1476998
+          ],
+          "to": [
+            -60.8351978,
+            11.0583782
+          ],
+          "distance_km": 15.55
+        },
+        {
+          "segment_index": 17,
+          "from": [
+            -60.844315,
+            11.0523772
+          ],
+          "to": [
+            -61.4798787,
+            10.8167298
+          ],
+          "distance_km": 74.17
+        },
+        {
+          "segment_index": 18,
+          "from": [
+            -61.4798787,
+            10.8167298
+          ],
+          "to": [
+            -61.6770972,
+            10.7444544
+          ],
+          "distance_km": 22.99
+        },
+        {
+          "segment_index": 21,
+          "from": [
+            -61.680844,
+            10.7408402
+          ],
+          "to": [
+            -61.7108059,
+            10.6804294
+          ],
+          "distance_km": 7.47
+        },
+        {
+          "segment_index": 31,
+          "from": [
+            -61.6876223,
+            10.6306194
+          ],
+          "to": [
+            -61.5913454,
+            10.6179714
+          ],
+          "distance_km": 10.62
+        },
+        {
+          "segment_index": 36,
+          "from": [
+            -61.5884661,
+            10.6184762
+          ],
+          "to": [
+            -61.5288946,
+            10.6503344
+          ],
+          "distance_km": 7.41
+        }
+      ],
+      "num_long_segments": 6,
+      "needs_improvement": true
+    },
+    {
+      "name": "Port of Spain - Scarborough Ferry",
+      "osm_id": "way/975075450",
+      "operator": "Trinidad and Tobago Inter-Island Ferry Service",
+      "total_points": 53,
+      "total_distance_km": 167.98,
+      "long_segments": [
+        {
+          "segment_index": 15,
+          "from": [
+            -61.5288784,
+            10.6503057
+          ],
+          "to": [
+            -61.5884434,
+            10.6184571
+          ],
+          "distance_km": 7.41
+        },
+        {
+          "segment_index": 21,
+          "from": [
+            -61.6109246,
+            10.6178461
+          ],
+          "to": [
+            -61.7205255,
+            10.6260858
+          ],
+          "distance_km": 12.01
+        },
+        {
+          "segment_index": 26,
+          "from": [
+            -61.7278537,
+            10.6284975
+          ],
+          "to": [
+            -61.7916123,
+            10.6690766
+          ],
+          "distance_km": 8.3
+        },
+        {
+          "segment_index": 36,
+          "from": [
+            -61.7721477,
+            10.7183792
+          ],
+          "to": [
+            -61.6787096,
+            10.7466192
+          ],
+          "distance_km": 10.68
+        },
+        {
+          "segment_index": 37,
+          "from": [
+            -61.6787096,
+            10.7466192
+          ],
+          "to": [
+            -60.8410685,
+            11.0538012
+          ],
+          "distance_km": 97.63
+        },
+        {
+          "segment_index": 39,
+          "from": [
+            -60.8382321,
+            11.0559062
+          ],
+          "to": [
+            -60.7255431,
+            11.1476998
+          ],
+          "distance_km": 15.98
+        }
+      ],
+      "num_long_segments": 6,
+      "needs_improvement": true
+    },
+    {
+      "name": "Charlotte Amalie, Saint Thomas - Spanish Town, Virgin Gorda",
+      "osm_id": "way/835084496",
+      "operator": "Speedy's Ferry",
+      "total_points": 23,
+      "total_distance_km": 60.41,
+      "long_segments": [
+        {
+          "segment_index": 13,
+          "from": [
+            -64.8800463,
+            18.2980349
+          ],
+          "to": [
+            -64.8159951,
+            18.2922236
+          ],
+          "distance_km": 6.79
+        },
+        {
+          "segment_index": 14,
+          "from": [
+            -64.8159951,
+            18.2922236
+          ],
+          "to": [
+            -64.7003655,
+            18.2927818
+          ],
+          "distance_km": 12.21
+        },
+        {
+          "segment_index": 17,
+          "from": [
+            -64.6929157,
+            18.2958369
+          ],
+          "to": [
+            -64.6537324,
+            18.3292605
+          ],
+          "distance_km": 5.56
+        },
+        {
+          "segment_index": 18,
+          "from": [
+            -64.6537324,
+            18.3292605
+          ],
+          "to": [
+            -64.6129185,
+            18.3575114
+          ],
+          "distance_km": 5.33
+        },
+        {
+          "segment_index": 19,
+          "from": [
+            -64.6129185,
+            18.3575114
+          ],
+          "to": [
+            -64.4425459,
+            18.4516503
+          ],
+          "distance_km": 20.8
+        }
+      ],
+      "num_long_segments": 5,
+      "needs_improvement": true
+    },
+    {
+      "name": "Ligne Pointe-à-Pitre - Grand-Bourg (Marie-Galante)",
+      "osm_id": "way/330784023",
+      "operator": "Non specifie",
+      "total_points": 27,
+      "total_distance_km": 48.01,
+      "long_segments": [
+        {
+          "segment_index": 13,
+          "from": [
+            -61.3684935,
+            15.9504399
+          ],
+          "to": [
+            -61.3921381,
+            16.0217103
+          ],
+          "distance_km": 8.32
+        },
+        {
+          "segment_index": 15,
+          "from": [
+            -61.4044785,
+            16.0490702
+          ],
+          "to": [
+            -61.4572663,
+            16.1147028
+          ],
+          "distance_km": 9.22
+        },
+        {
+          "segment_index": 16,
+          "from": [
+            -61.4572663,
+            16.1147028
+          ],
+          "to": [
+            -61.4954058,
+            16.1649784
+          ],
+          "distance_km": 6.92
+        },
+        {
+          "segment_index": 17,
+          "from": [
+            -61.4954058,
+            16.1649784
+          ],
+          "to": [
+            -61.5293078,
+            16.2121349
+          ],
+          "distance_km": 6.37
+        }
+      ],
+      "num_long_segments": 4,
+      "needs_improvement": true
+    },
+    {
+      "name": "Antigua - Montserrat",
+      "osm_id": "way/392528536",
+      "operator": "Non specifie",
+      "total_points": 28,
+      "total_distance_km": 58.22,
+      "long_segments": [
+        {
+          "segment_index": 14,
+          "from": [
+            -61.9728286,
+            17.1039025
+          ],
+          "to": [
+            -62.0647211,
+            17.0322315
+          ],
+          "distance_km": 12.61
+        },
+        {
+          "segment_index": 15,
+          "from": [
+            -62.0647211,
+            17.0322315
+          ],
+          "to": [
+            -62.1056838,
+            16.9837035
+          ],
+          "distance_km": 6.93
+        },
+        {
+          "segment_index": 16,
+          "from": [
+            -62.1056838,
+            16.9837035
+          ],
+          "to": [
+            -62.1567745,
+            16.8963628
+          ],
+          "distance_km": 11.13
+        },
+        {
+          "segment_index": 17,
+          "from": [
+            -62.1567745,
+            16.8963628
+          ],
+          "to": [
+            -62.2120017,
+            16.8241477
+          ],
+          "distance_km": 9.95
+        }
+      ],
+      "num_long_segments": 4,
+      "needs_improvement": true
+    },
+    {
+      "name": "Road Town, Tortola - Charlotte Amalie, Saint Thomas",
+      "osm_id": "way/835096420",
+      "operator": "Non specifie",
+      "total_points": 26,
+      "total_distance_km": 45.17,
+      "long_segments": [
+        {
+          "segment_index": 7,
+          "from": [
+            -64.6134216,
+            18.403544
+          ],
+          "to": [
+            -64.6565838,
+            18.3381623
+          ],
+          "distance_km": 8.58
+        },
+        {
+          "segment_index": 9,
+          "from": [
+            -64.6606265,
+            18.3330933
+          ],
+          "to": [
+            -64.6949088,
+            18.2972416
+          ],
+          "distance_km": 5.38
+        },
+        {
+          "segment_index": 12,
+          "from": [
+            -64.7050165,
+            18.2918772
+          ],
+          "to": [
+            -64.8155295,
+            18.2909926
+          ],
+          "distance_km": 11.67
+        },
+        {
+          "segment_index": 13,
+          "from": [
+            -64.8155295,
+            18.2909926
+          ],
+          "to": [
+            -64.8799858,
+            18.297014
+          ],
+          "distance_km": 6.84
+        }
+      ],
+      "num_long_segments": 4,
+      "needs_improvement": true
+    },
+    {
+      "name": "Cruz Bay, Saint John - Spanish Town, Virign Gorda",
+      "osm_id": "way/835169173",
+      "operator": "Inter Island Boat Services",
+      "total_points": 22,
+      "total_distance_km": 42.63,
+      "long_segments": [
+        {
+          "segment_index": 14,
+          "from": [
+            -64.7516966,
+            18.3754411
+          ],
+          "to": [
+            -64.6652945,
+            18.3799672
+          ],
+          "distance_km": 9.13
+        },
+        {
+          "segment_index": 16,
+          "from": [
+            -64.6606087,
+            18.3805976
+          ],
+          "to": [
+            -64.5747826,
+            18.4071081
+          ],
+          "distance_km": 9.52
+        },
+        {
+          "segment_index": 17,
+          "from": [
+            -64.5747826,
+            18.4071081
+          ],
+          "to": [
+            -64.522349,
+            18.4250183
+          ],
+          "distance_km": 5.88
+        },
+        {
+          "segment_index": 18,
+          "from": [
+            -64.522349,
+            18.4250183
+          ],
+          "to": [
+            -64.4427213,
+            18.4520434
+          ],
+          "distance_km": 8.92
+        }
+      ],
+      "num_long_segments": 4,
+      "needs_improvement": true
+    },
+    {
+      "name": "Sans nom",
+      "osm_id": "way/1117591075",
+      "operator": "Non specifie",
+      "total_points": 34,
+      "total_distance_km": 70.02,
+      "long_segments": [
+        {
+          "segment_index": 16,
+          "from": [
+            -61.1130814,
+            14.4827019
+          ],
+          "to": [
+            -61.0916925,
+            14.4052156
+          ],
+          "distance_km": 8.92
+        },
+        {
+          "segment_index": 17,
+          "from": [
+            -61.0916925,
+            14.4052156
+          ],
+          "to": [
+            -61.0605529,
+            14.2426297
+          ],
+          "distance_km": 18.39
+        },
+        {
+          "segment_index": 18,
+          "from": [
+            -61.0605529,
+            14.2426297
+          ],
+          "to": [
+            -61.0418013,
+            14.1451214
+          ],
+          "distance_km": 11.03
+        },
+        {
+          "segment_index": 19,
+          "from": [
+            -61.0418013,
+            14.1451214
+          ],
+          "to": [
+            -61.0151209,
+            14.0327775
+          ],
+          "distance_km": 12.82
+        }
+      ],
+      "num_long_segments": 4,
+      "needs_improvement": true
+    },
+    {
+      "name": "Ligne Fort de France - Castries",
+      "osm_id": "way/1120991882",
+      "operator": "Non specifie",
+      "total_points": 35,
+      "total_distance_km": 69.96,
+      "long_segments": [
+        {
+          "segment_index": 14,
+          "from": [
+            -61.0149958,
+            14.032832
+          ],
+          "to": [
+            -61.0416696,
+            14.145148
+          ],
+          "distance_km": 12.82
+        },
+        {
+          "segment_index": 15,
+          "from": [
+            -61.0416696,
+            14.145148
+          ],
+          "to": [
+            -61.0604206,
+            14.2426535
+          ],
+          "distance_km": 11.03
+        },
+        {
+          "segment_index": 16,
+          "from": [
+            -61.0604206,
+            14.2426535
+          ],
+          "to": [
+            -61.0915612,
+            14.4052444
+          ],
+          "distance_km": 18.39
+        },
+        {
+          "segment_index": 17,
+          "from": [
+            -61.0915612,
+            14.4052444
+          ],
+          "to": [
+            -61.1129484,
+            14.4827246
+          ],
+          "distance_km": 8.92
+        }
+      ],
+      "num_long_segments": 4,
+      "needs_improvement": true
+    },
+    {
+      "name": "Ceiba - Culebra",
+      "osm_id": "way/324941436",
+      "operator": "Hornblower",
+      "total_points": 12,
+      "total_distance_km": 36.93,
+      "long_segments": [
+        {
+          "segment_index": 7,
+          "from": [
+            -65.60204,
+            18.2059416
+          ],
+          "to": [
+            -65.53526,
+            18.22094
+          ],
+          "distance_km": 7.25
+        },
+        {
+          "segment_index": 8,
+          "from": [
+            -65.53526,
+            18.22094
+          ],
+          "to": [
+            -65.47324,
+            18.23899
+          ],
+          "distance_km": 6.85
+        },
+        {
+          "segment_index": 9,
+          "from": [
+            -65.47324,
+            18.23899
+          ],
+          "to": [
+            -65.30427,
+            18.30003
+          ],
+          "distance_km": 19.09
+        }
+      ],
+      "num_long_segments": 3,
+      "needs_improvement": true
+    },
+    {
+      "name": "Road Town, Tortola - Red Hook, Saint Thomas",
+      "osm_id": "way/835091878",
+      "operator": "Non specifie",
+      "total_points": 22,
+      "total_distance_km": 29.16,
+      "long_segments": [
+        {
+          "segment_index": 8,
+          "from": [
+            -64.6166214,
+            18.4027376
+          ],
+          "to": [
+            -64.6608566,
+            18.3813262
+          ],
+          "distance_km": 5.24
+        },
+        {
+          "segment_index": 10,
+          "from": [
+            -64.6652305,
+            18.3806999
+          ],
+          "to": [
+            -64.7518209,
+            18.3761416
+          ],
+          "distance_km": 9.15
+        },
+        {
+          "segment_index": 13,
+          "from": [
+            -64.7952817,
+            18.3549027
+          ],
+          "to": [
+            -64.8396819,
+            18.3287116
+          ],
+          "distance_km": 5.52
+        }
+      ],
+      "num_long_segments": 3,
+      "needs_improvement": true
+    },
+    {
+      "name": "Kingstown, Saint Vincent - Clifton, Union Island",
+      "osm_id": "way/839057560",
+      "operator": "Non specifie",
+      "total_points": 23,
+      "total_distance_km": 67.27,
+      "long_segments": [
+        {
+          "segment_index": 3,
+          "from": [
+            -61.2300096,
+            13.1466795
+          ],
+          "to": [
+            -61.2930054,
+            12.9906001
+          ],
+          "distance_km": 18.65
+        },
+        {
+          "segment_index": 4,
+          "from": [
+            -61.2930054,
+            12.9906001
+          ],
+          "to": [
+            -61.4089767,
+            12.649161
+          ],
+          "distance_km": 39.99
+        },
+        {
+          "segment_index": 5,
+          "from": [
+            -61.4089767,
+            12.649161
+          ],
+          "to": [
+            -61.4055986,
+            12.5928473
+          ],
+          "distance_km": 6.27
+        }
+      ],
+      "num_long_segments": 3,
+      "needs_improvement": true
+    },
+    {
+      "name": "Tyrell Bay, Carriacou - Petite Martinque",
+      "osm_id": "way/27591989",
+      "operator": "Non specifie",
+      "total_points": 16,
+      "total_distance_km": 18.12,
+      "long_segments": [
+        {
+          "segment_index": 8,
+          "from": [
+            -61.4964345,
+            12.4885922
+          ],
+          "to": [
+            -61.4550508,
+            12.5228567
+          ],
+          "distance_km": 5.89
+        },
+        {
+          "segment_index": 11,
+          "from": [
+            -61.4372605,
+            12.5309405
+          ],
+          "to": [
+            -61.3889787,
+            12.5268402
+          ],
+          "distance_km": 5.26
+        }
+      ],
+      "num_long_segments": 2,
+      "needs_improvement": true
+    },
+    {
+      "name": "St. George's, Grenada - Tyrell Bay, Carriacou",
+      "osm_id": "way/106603174",
+      "operator": "Non specifie",
+      "total_points": 19,
+      "total_distance_km": 58.85,
+      "long_segments": [
+        {
+          "segment_index": 14,
+          "from": [
+            -61.739614,
+            12.1699386
+          ],
+          "to": [
+            -61.5506661,
+            12.4243817
+          ],
+          "distance_km": 34.96
+        },
+        {
+          "segment_index": 15,
+          "from": [
+            -61.5506661,
+            12.4243817
+          ],
+          "to": [
+            -61.5065866,
+            12.4503712
+          ],
+          "distance_km": 5.59
+        }
+      ],
+      "num_long_segments": 2,
+      "needs_improvement": true
+    },
+    {
+      "name": "Ligne Pointe à Pitre - Les Saintes",
+      "osm_id": "way/126546461",
+      "operator": "Non specifie",
+      "total_points": 28,
+      "total_distance_km": 45.85,
+      "long_segments": [
+        {
+          "segment_index": 8,
+          "from": [
+            -61.5299347,
+            16.21189
+          ],
+          "to": [
+            -61.5099359,
+            16.1216357
+          ],
+          "distance_km": 10.26
+        },
+        {
+          "segment_index": 9,
+          "from": [
+            -61.5099359,
+            16.1216357
+          ],
+          "to": [
+            -61.4986928,
+            16.0750763
+          ],
+          "distance_km": 5.31
+        }
+      ],
+      "num_long_segments": 2,
+      "needs_improvement": true
+    },
+    {
+      "name": "Ligne Pointe-à-Pitre - Roseau",
+      "osm_id": "way/197459406",
+      "operator": "Non specifie",
+      "total_points": 42,
+      "total_distance_km": 120.86,
+      "long_segments": [
+        {
+          "segment_index": 8,
+          "from": [
+            -61.5296312,
+            16.2120219
+          ],
+          "to": [
+            -61.4626698,
+            16.020243
+          ],
+          "distance_km": 22.49
+        },
+        {
+          "segment_index": 37,
+          "from": [
+            -61.4760508,
+            15.3520763
+          ],
+          "to": [
+            -61.4191021,
+            15.3133869
+          ],
+          "distance_km": 7.47
+        }
+      ],
+      "num_long_segments": 2,
+      "needs_improvement": true
+    },
+    {
+      "name": "Phillipsburg, Sint Maarten - Gustavia, Saint-Barthélemy",
+      "osm_id": "way/361797608",
+      "operator": "Great Bay Express Ferry",
+      "total_points": 19,
+      "total_distance_km": 26.35,
+      "long_segments": [
+        {
+          "segment_index": 7,
+          "from": [
+            -62.8921241,
+            17.9237844
+          ],
+          "to": [
+            -62.9429989,
+            17.9543333
+          ],
+          "distance_km": 6.36
+        },
+        {
+          "segment_index": 8,
+          "from": [
+            -62.9429989,
+            17.9543333
+          ],
+          "to": [
+            -63.0468467,
+            18.0017311
+          ],
+          "distance_km": 12.18
+        }
+      ],
+      "num_long_segments": 2,
+      "needs_improvement": true
+    },
+    {
+      "name": "Antigua - Barbuda",
+      "osm_id": "way/388605140",
+      "operator": "Non specifie",
+      "total_points": 36,
+      "total_distance_km": 54.04,
+      "long_segments": [
+        {
+          "segment_index": 13,
+          "from": [
+            -61.8716526,
+            17.1622575
+          ],
+          "to": [
+            -61.8692353,
+            17.2777572
+          ],
+          "distance_km": 12.85
+        },
+        {
+          "segment_index": 17,
+          "from": [
+            -61.8675616,
+            17.312422
+          ],
+          "to": [
+            -61.8251709,
+            17.5812659
+          ],
+          "distance_km": 30.23
+        }
+      ],
+      "num_long_segments": 2,
+      "needs_improvement": true
+    },
+    {
+      "name": "Ligne Saint-François - Saint-Louis (Marie-Galante)",
+      "osm_id": "way/486720158",
+      "operator": "Non specifie",
+      "total_points": 17,
+      "total_distance_km": 34.41,
+      "long_segments": [
+        {
+          "segment_index": 6,
+          "from": [
+            -61.2783125,
+            16.2406415
+          ],
+          "to": [
+            -61.298311,
+            16.1635772
+          ],
+          "distance_km": 8.83
+        },
+        {
+          "segment_index": 7,
+          "from": [
+            -61.298311,
+            16.1635772
+          ],
+          "to": [
+            -61.3237169,
+            16.0745242
+          ],
+          "distance_km": 10.27
+        }
+      ],
+      "num_long_segments": 2,
+      "needs_improvement": true
+    },
+    {
+      "name": "Road Town, Tortola - Spanish Town, Virgin Gorda",
+      "osm_id": "way/835104086",
+      "operator": "Non specifie",
+      "total_points": 10,
+      "total_distance_km": 20.07,
+      "long_segments": [
+        {
+          "segment_index": 5,
+          "from": [
+            -64.5747072,
+            18.4083298
+          ],
+          "to": [
+            -64.521064,
+            18.4259944
+          ],
+          "distance_km": 5.99
+        },
+        {
+          "segment_index": 6,
+          "from": [
+            -64.521064,
+            18.4259944
+          ],
+          "to": [
+            -64.4427265,
+            18.4524272
+          ],
+          "distance_km": 8.77
+        }
+      ],
+      "num_long_segments": 2,
+      "needs_improvement": true
+    },
+    {
+      "name": "Road Town, Tortola - Setting Point, Anegada",
+      "osm_id": "way/835105193",
+      "operator": "Smith's Ferry Services",
+      "total_points": 13,
+      "total_distance_km": 46.99,
+      "long_segments": [
+        {
+          "segment_index": 5,
+          "from": [
+            -64.5746952,
+            18.4093211
+          ],
+          "to": [
+            -64.5245625,
+            18.4254129
+          ],
+          "distance_km": 5.58
+        },
+        {
+          "segment_index": 9,
+          "from": [
+            -64.5108296,
+            18.4315812
+          ],
+          "to": [
+            -64.3807953,
+            18.721406
+          ],
+          "distance_km": 35.02
+        }
+      ],
+      "num_long_segments": 2,
+      "needs_improvement": true
+    },
+    {
+      "name": "Virgin Gorda Yacht Harbour - Lobster Trap Dock, Anegada",
+      "osm_id": "way/835354261",
+      "operator": "Anegada Express",
+      "total_points": 18,
+      "total_distance_km": 31.97,
+      "long_segments": [
+        {
+          "segment_index": 14,
+          "from": [
+            -64.4476479,
+            18.4630629
+          ],
+          "to": [
+            -64.4368653,
+            18.5073904
+          ],
+          "distance_km": 5.06
+        },
+        {
+          "segment_index": 15,
+          "from": [
+            -64.4368653,
+            18.5073904
+          ],
+          "to": [
+            -64.3839589,
+            18.7247235
+          ],
+          "distance_km": 24.8
+        }
+      ],
+      "num_long_segments": 2,
+      "needs_improvement": true
+    },
+    {
+      "name": "Charlestown, Canouan - Kingstown, Saint Vincent",
+      "osm_id": "way/839057563",
+      "operator": "Non specifie",
+      "total_points": 11,
+      "total_distance_km": 51.78,
+      "long_segments": [
+        {
+          "segment_index": 3,
+          "from": [
+            -61.3364237,
+            12.7402226
+          ],
+          "to": [
+            -61.2924399,
+            12.9902811
+          ],
+          "distance_km": 28.21
+        },
+        {
+          "segment_index": 5,
+          "from": [
+            -61.2922632,
+            12.990935
+          ],
+          "to": [
+            -61.2295523,
+            13.1458315
+          ],
+          "distance_km": 18.51
+        }
+      ],
+      "num_long_segments": 2,
+      "needs_improvement": true
+    },
+    {
+      "name": "Suncrest - Charlestown",
+      "osm_id": "way/839222987",
+      "operator": "Non specifie",
+      "total_points": 17,
+      "total_distance_km": 18.49,
+      "long_segments": [
+        {
+          "segment_index": 9,
+          "from": [
+            -62.6319887,
+            17.1407922
+          ],
+          "to": [
+            -62.6810163,
+            17.2361825
+          ],
+          "distance_km": 11.82
+        },
+        {
+          "segment_index": 10,
+          "from": [
+            -62.6810163,
+            17.2361825
+          ],
+          "to": [
+            -62.7105827,
+            17.2843531
+          ],
+          "distance_km": 6.21
+        }
+      ],
+      "num_long_segments": 2,
+      "needs_improvement": true
+    },
+    {
+      "name": "Saba - Statia",
+      "osm_id": "way/1042446713",
+      "operator": "Makana Ferry Service",
+      "total_points": 18,
+      "total_distance_km": 32.42,
+      "long_segments": [
+        {
+          "segment_index": 10,
+          "from": [
+            -63.2503027,
+            17.609681
+          ],
+          "to": [
+            -63.0327542,
+            17.4998709
+          ],
+          "distance_km": 26.1
+        },
+        {
+          "segment_index": 11,
+          "from": [
+            -63.0327542,
+            17.4998709
+          ],
+          "to": [
+            -62.9871887,
+            17.4785864
+          ],
+          "distance_km": 5.38
+        }
+      ],
+      "num_long_segments": 2,
+      "needs_improvement": true
+    },
+    {
+      "name": "Statia - Sint Maarten",
+      "osm_id": "way/1042449897",
+      "operator": "Makana Ferry Service",
+      "total_points": 12,
+      "total_distance_km": 63.8,
+      "long_segments": [
+        {
+          "segment_index": 5,
+          "from": [
+            -62.9871872,
+            17.4785881
+          ],
+          "to": [
+            -63.0327272,
+            17.4999373
+          ],
+          "distance_km": 5.38
+        },
+        {
+          "segment_index": 6,
+          "from": [
+            -63.0327272,
+            17.4999373
+          ],
+          "to": [
+            -63.0530638,
+            18.0074118
+          ],
+          "distance_km": 56.47
+        }
+      ],
+      "num_long_segments": 2,
+      "needs_improvement": true
+    },
+    {
+      "name": "Montserrat-Nevis",
+      "osm_id": "way/1243741932",
+      "operator": "ferry.mniaccess.com",
+      "total_points": 18,
+      "total_distance_km": 60.37,
+      "long_segments": [
+        {
+          "segment_index": 8,
+          "from": [
+            -62.6003902,
+            17.0891909
+          ],
+          "to": [
+            -62.4895109,
+            16.9995946
+          ],
+          "distance_km": 15.43
+        },
+        {
+          "segment_index": 11,
+          "from": [
+            -62.4636532,
+            16.9690496
+          ],
+          "to": [
+            -62.2210488,
+            16.8071433
+          ],
+          "distance_km": 31.47
+        }
+      ],
+      "num_long_segments": 2,
+      "needs_improvement": true
+    },
+    {
+      "name": "Ceiba - Vieques",
+      "osm_id": "way/105811902",
+      "operator": "Hornblower",
+      "total_points": 8,
+      "total_distance_km": 21.56,
+      "long_segments": [
+        {
+          "segment_index": 6,
+          "from": [
+            -65.6055446,
+            18.2025592
+          ],
+          "to": [
+            -65.4431708,
+            18.1522278
+          ],
+          "distance_km": 18.04
+        }
+      ],
+      "num_long_segments": 1,
+      "needs_improvement": true
+    },
+    {
+      "name": "Ligne Pointe-à-Pitre - Saint-Louis (Marie-Galante)",
+      "osm_id": "way/126546464",
+      "operator": "Non specifie",
+      "total_points": 20,
+      "total_distance_km": 42.46,
+      "long_segments": [
+        {
+          "segment_index": 8,
+          "from": [
+            -61.5290258,
+            16.2122279
+          ],
+          "to": [
+            -61.43012,
+            16.0067933
+          ],
+          "distance_km": 25.17
+        }
+      ],
+      "num_long_segments": 1,
+      "needs_improvement": true
+    },
+    {
+      "name": "Marigot, Saint-Martin - Blowing Point, Anguilla",
+      "osm_id": "way/200701026",
+      "operator": "Non specifie",
+      "total_points": 23,
+      "total_distance_km": 12.08,
+      "long_segments": [
+        {
+          "segment_index": 16,
+          "from": [
+            -63.0927637,
+            18.0717003
+          ],
+          "to": [
+            -63.0938784,
+            18.1671282
+          ],
+          "distance_km": 10.61
+        }
+      ],
+      "num_long_segments": 1,
+      "needs_improvement": true
+    },
+    {
+      "name": "Blowing Point, Anguilla - Princess Juliana International Airport, Sint Maarten",
+      "osm_id": "way/226917897",
+      "operator": "Non specifie",
+      "total_points": 19,
+      "total_distance_km": 15.51,
+      "long_segments": [
+        {
+          "segment_index": 5,
+          "from": [
+            -63.0943731,
+            18.167273
+          ],
+          "to": [
+            -63.0972687,
+            18.0631884
+          ],
+          "distance_km": 11.58
+        }
+      ],
+      "num_long_segments": 1,
+      "needs_improvement": true
+    },
+    {
+      "name": "Le Marin - Rodney Bay",
+      "osm_id": "way/354178292",
+      "operator": "Non specifie",
+      "total_points": 11,
+      "total_distance_km": 47.72,
+      "long_segments": [
+        {
+          "segment_index": 5,
+          "from": [
+            -60.9101337,
+            14.4312089
+          ],
+          "to": [
+            -60.9708722,
+            14.0913604
+          ],
+          "distance_km": 38.35
+        }
+      ],
+      "num_long_segments": 1,
+      "needs_improvement": true
+    },
+    {
+      "name": "Oyster Pond, Saint-Martin - Gustavia, Saint-Barthélemy",
+      "osm_id": "way/361461769",
+      "operator": "Voyager Company",
+      "total_points": 25,
+      "total_distance_km": 24.89,
+      "long_segments": [
+        {
+          "segment_index": 15,
+          "from": [
+            -63.0123396,
+            18.0515726
+          ],
+          "to": [
+            -62.9035797,
+            17.9406137
+          ],
+          "distance_km": 16.87
+        }
+      ],
+      "num_long_segments": 1,
+      "needs_improvement": true
+    },
+    {
+      "name": "Marigot, Saint-Martin - Gustavia, Saint-Barthélemy",
+      "osm_id": "way/361820218",
+      "operator": "Voyager Company",
+      "total_points": 29,
+      "total_distance_km": 44.22,
+      "long_segments": [
+        {
+          "segment_index": 23,
+          "from": [
+            -62.9806863,
+            18.0780728
+          ],
+          "to": [
+            -62.9237537,
+            17.9659835
+          ],
+          "distance_km": 13.84
+        }
+      ],
+      "num_long_segments": 1,
+      "needs_improvement": true
+    },
+    {
+      "name": "Trellis Bay, Beef Island - Spanish Town, Virgin Gorda",
+      "osm_id": "way/401297094",
+      "operator": "Speedy's Ferry Service",
+      "total_points": 9,
+      "total_distance_km": 10.55,
+      "long_segments": [
+        {
+          "segment_index": 6,
+          "from": [
+            -64.5275263,
+            18.4523988
+          ],
+          "to": [
+            -64.4403792,
+            18.45309
+          ],
+          "distance_km": 9.19
+        }
+      ],
+      "num_long_segments": 1,
+      "needs_improvement": true
+    },
+    {
+      "name": "Carúpano - Los Testigos",
+      "osm_id": "way/476733340",
+      "operator": "Non specifie",
+      "total_points": 32,
+      "total_distance_km": 77.23,
+      "long_segments": [
+        {
+          "segment_index": 23,
+          "from": [
+            -63.1289912,
+            11.3502736
+          ],
+          "to": [
+            -63.245756,
+            10.6783116
+          ],
+          "distance_km": 75.8
+        }
+      ],
+      "num_long_segments": 1,
+      "needs_improvement": true
+    },
+    {
+      "name": "El Morro de Puerto Santo - Los Testigos",
+      "osm_id": "way/476733345",
+      "operator": "Non specifie",
+      "total_points": 28,
+      "total_distance_km": 71.92,
+      "long_segments": [
+        {
+          "segment_index": 14,
+          "from": [
+            -63.129347,
+            11.3538682
+          ],
+          "to": [
+            -63.1694353,
+            10.7268571
+          ],
+          "distance_km": 69.86
+        }
+      ],
+      "num_long_segments": 1,
+      "needs_improvement": true
+    },
+    {
+      "name": "Ligne Fort-de-France/St-Pierre/ Roseau",
+      "osm_id": "way/492128939",
+      "operator": "Non specifie",
+      "total_points": 76,
+      "total_distance_km": 72.74,
+      "long_segments": [
+        {
+          "segment_index": 51,
+          "from": [
+            -61.3704447,
+            15.0376849
+          ],
+          "to": [
+            -61.3588575,
+            14.9929603
+          ],
+          "distance_km": 5.13
+        }
+      ],
+      "num_long_segments": 1,
+      "needs_improvement": true
+    },
+    {
+      "name": "Rodney Bay - Fort de France",
+      "osm_id": "way/669916803",
+      "operator": "Caraib Sea Line",
+      "total_points": 21,
+      "total_distance_km": 64.46,
+      "long_segments": [
+        {
+          "segment_index": 4,
+          "from": [
+            -60.9708963,
+            14.0913318
+          ],
+          "to": [
+            -61.1151758,
+            14.5088172
+          ],
+          "distance_km": 48.96
+        }
+      ],
+      "num_long_segments": 1,
+      "needs_improvement": true
+    },
+    {
+      "name": "Ligne Trois-Rivières - Terre-de-Bas",
+      "osm_id": "way/681271534",
+      "operator": "Non specifie",
+      "total_points": 18,
+      "total_distance_km": 14.2,
+      "long_segments": [
+        {
+          "segment_index": 6,
+          "from": [
+            -61.6465813,
+            15.9656648
+          ],
+          "to": [
+            -61.6129598,
+            15.894502
+          ],
+          "distance_km": 8.69
+        }
+      ],
+      "num_long_segments": 1,
+      "needs_improvement": true
+    },
+    {
+      "name": "Saba - Sint Maarten",
+      "osm_id": "way/834766365",
+      "operator": "Makana Ferry Service",
+      "total_points": 22,
+      "total_distance_km": 53.32,
+      "long_segments": [
+        {
+          "segment_index": 16,
+          "from": [
+            -63.2129798,
+            17.6262922
+          ],
+          "to": [
+            -63.0531893,
+            18.0074401
+          ],
+          "distance_km": 45.63
+        }
+      ],
+      "num_long_segments": 1,
+      "needs_improvement": true
+    },
+    {
+      "name": "Simpson Bay, Sint Maarten - Fort Bay, Saba",
+      "osm_id": "way/834769280",
+      "operator": "The Edge Ferry",
+      "total_points": 24,
+      "total_distance_km": 53.12,
+      "long_segments": [
+        {
+          "segment_index": 6,
+          "from": [
+            -63.1087781,
+            18.0259233
+          ],
+          "to": [
+            -63.2096394,
+            17.6389154
+          ],
+          "distance_km": 44.34
+        }
+      ],
+      "num_long_segments": 1,
+      "needs_improvement": true
+    },
+    {
+      "name": "Charlotte Amalie, Saint Thomas - Gallows Bay, Saint Croix",
+      "osm_id": "way/834842768",
+      "operator": "QE IV Ferry Services",
+      "total_points": 24,
+      "total_distance_km": 71.28,
+      "long_segments": [
+        {
+          "segment_index": 7,
+          "from": [
+            -64.9255256,
+            18.3199189
+          ],
+          "to": [
+            -64.6973018,
+            17.7624181
+          ],
+          "distance_km": 66.52
+        }
+      ],
+      "num_long_segments": 1,
+      "needs_improvement": true
+    },
+    {
+      "name": "Great Harbour, Jost Van Dyke - Red Hook, Saint Thomas",
+      "osm_id": "way/835088682",
+      "operator": "Inter Island Boat Services",
+      "total_points": 15,
+      "total_distance_km": 17.27,
+      "long_segments": [
+        {
+          "segment_index": 5,
+          "from": [
+            -64.7526243,
+            18.4360916
+          ],
+          "to": [
+            -64.7951971,
+            18.3628762
+          ],
+          "distance_km": 9.3
+        }
+      ],
+      "num_long_segments": 1,
+      "needs_improvement": true
+    },
+    {
+      "name": "Cruz Bay, Saint John - Great Harbour, Jost Van Dyke",
+      "osm_id": "way/835088683",
+      "operator": "Inter Island Boat Services",
+      "total_points": 20,
+      "total_distance_km": 14.17,
+      "long_segments": [
+        {
+          "segment_index": 12,
+          "from": [
+            -64.7951536,
+            18.3603363
+          ],
+          "to": [
+            -64.7517462,
+            18.4359357
+          ],
+          "distance_km": 9.57
+        }
+      ],
+      "num_long_segments": 1,
+      "needs_improvement": true
+    },
+    {
+      "name": "West End, Tortola - Great Harbour, Jost Van Dyke",
+      "osm_id": "way/835101072",
+      "operator": "New Horizon Ferry Service",
+      "total_points": 11,
+      "total_distance_km": 8.82,
+      "long_segments": [
+        {
+          "segment_index": 7,
+          "from": [
+            -64.7187157,
+            18.3891805
+          ],
+          "to": [
+            -64.7522381,
+            18.4429765
+          ],
+          "distance_km": 6.95
+        }
+      ],
+      "num_long_segments": 1,
+      "needs_improvement": true
+    },
+    {
+      "name": "West End, Tortola - Charlotte Amalie, Saint Thomas",
+      "osm_id": "way/835164713",
+      "operator": "Non specifie",
+      "total_points": 28,
+      "total_distance_km": 29.9,
+      "long_segments": [
+        {
+          "segment_index": 10,
+          "from": [
+            -64.7991637,
+            18.3530905
+          ],
+          "to": [
+            -64.8361373,
+            18.3142905
+          ],
+          "distance_km": 5.82
+        }
+      ],
+      "num_long_segments": 1,
+      "needs_improvement": true
+    },
+    {
+      "name": "West End, Tortola - Road Town, Tortola",
+      "osm_id": "way/835164714",
+      "operator": "Non specifie",
+      "total_points": 23,
+      "total_distance_km": 13.87,
+      "long_segments": [
+        {
+          "segment_index": 14,
+          "from": [
+            -64.6612138,
+            18.3819363
+          ],
+          "to": [
+            -64.6169657,
+            18.4030669
+          ],
+          "distance_km": 5.23
+        }
+      ],
+      "num_long_segments": 1,
+      "needs_improvement": true
+    },
+    {
+      "name": "Hannah Bay, Tortola - Pirates Bight, Norman Island",
+      "osm_id": "way/835177009",
+      "operator": "Pirates Bight Restaurant",
+      "total_points": 13,
+      "total_distance_km": 10.34,
+      "long_segments": [
+        {
+          "segment_index": 5,
+          "from": [
+            -64.6368212,
+            18.3965457
+          ],
+          "to": [
+            -64.6295858,
+            18.3271272
+          ],
+          "distance_km": 7.76
+        }
+      ],
+      "num_long_segments": 1,
+      "needs_improvement": true
+    },
+    {
+      "name": "Loose Mongoose, Beef Island - Virgin Gorda Yacht Harbour",
+      "osm_id": "way/835354259",
+      "operator": "Anegada Express",
+      "total_points": 20,
+      "total_distance_km": 10.73,
+      "long_segments": [
+        {
+          "segment_index": 5,
+          "from": [
+            -64.5252067,
+            18.4517492
+          ],
+          "to": [
+            -64.4469193,
+            18.4526186
+          ],
+          "distance_km": 8.26
+        }
+      ],
+      "num_long_segments": 1,
+      "needs_improvement": true
+    },
+    {
+      "name": "Kingstown, Saint Vincent - Port Elizabeth, Bequia",
+      "osm_id": "way/839057557",
+      "operator": "Non specifie",
+      "total_points": 10,
+      "total_distance_km": 17.63,
+      "long_segments": [
+        {
+          "segment_index": 4,
+          "from": [
+            -61.229743,
+            13.1420422
+          ],
+          "to": [
+            -61.2521448,
+            13.015152
+          ],
+          "distance_km": 14.32
+        }
+      ],
+      "num_long_segments": 1,
+      "needs_improvement": true
+    },
+    {
+      "name": "Mayreau - Charlestown, Canouan",
+      "osm_id": "way/839057562",
+      "operator": "Non specifie",
+      "total_points": 18,
+      "total_distance_km": 12.94,
+      "long_segments": [
+        {
+          "segment_index": 9,
+          "from": [
+            -61.399377,
+            12.6492332
+          ],
+          "to": [
+            -61.3548218,
+            12.7059604
+          ],
+          "distance_km": 7.95
+        }
+      ],
+      "num_long_segments": 1,
+      "needs_improvement": true
+    },
+    {
+      "name": "Tyrell Bay, Carriacou - Clifton, Union Island",
+      "osm_id": "way/839065288",
+      "operator": "Non specifie",
+      "total_points": 23,
+      "total_distance_km": 20.53,
+      "long_segments": [
+        {
+          "segment_index": 10,
+          "from": [
+            -61.4998539,
+            12.4893117
+          ],
+          "to": [
+            -61.4641212,
+            12.5195758
+          ],
+          "distance_km": 5.14
+        }
+      ],
+      "num_long_segments": 1,
+      "needs_improvement": true
+    },
+    {
+      "name": "Port Zante - Figtree",
+      "osm_id": "way/839222991",
+      "operator": "Non specifie",
+      "total_points": 22,
+      "total_distance_km": 23.33,
+      "long_segments": [
+        {
+          "segment_index": 4,
+          "from": [
+            -62.6320954,
+            17.1158618
+          ],
+          "to": [
+            -62.725102,
+            17.2855304
+          ],
+          "distance_km": 21.3
+        }
+      ],
+      "num_long_segments": 1,
+      "needs_improvement": true
+    },
+    {
+      "name": "Sans nom",
+      "osm_id": "way/1194662770",
+      "operator": "Non specifie",
+      "total_points": 45,
+      "total_distance_km": 44.11,
+      "long_segments": [
+        {
+          "segment_index": 26,
+          "from": [
+            -61.935003,
+            17.0273552
+          ],
+          "to": [
+            -61.932208,
+            17.1084509
+          ],
+          "distance_km": 9.02
+        }
+      ],
+      "num_long_segments": 1,
+      "needs_improvement": true
+    }
+  ]
+}

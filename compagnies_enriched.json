@@ -28,7 +28,13 @@
             "note": "Tarifs 2022, vérifier site pour 2025"
           },
           "frequence": "7j/7, 10+ rotations/jour",
-          "services": ["Piétons uniquement", "Réservation conseillée haute saison"]
+          "services": [
+            "Piétons uniquement",
+            "Réservation conseillée haute saison"
+          ],
+          "type_service": "passager",
+          "usage": "regional",
+          "transport_vehicules": false
         },
         {
           "route_id": "R-GPE-05",
@@ -38,11 +44,16 @@
             "adulte_aller_simple": 22,
             "devise": "EUR"
           },
-          "frequence": "Régulier"
+          "frequence": "Régulier",
+          "type_service": "passager",
+          "usage": "regional",
+          "transport_vehicules": false
         }
       ],
       "couleur_carte": "#9b59b6",
-      "photos_navires": []
+      "photos_navires": [],
+      "type_service": "passager",
+      "usage": "local"
     },
     {
       "id": "karuferry",
@@ -68,10 +79,17 @@
             "conditions": "Non remboursable, utilisable 1 an, modifiable sans frais"
           },
           "horaires": "8h-18h15",
-          "services": ["Navette inter-Saintes GRATUITE"]
+          "services": [
+            "Navette inter-Saintes GRATUITE"
+          ],
+          "type_service": "passager",
+          "usage": "regional",
+          "transport_vehicules": false
         }
       ],
-      "couleur_carte": "#27ae60"
+      "couleur_carte": "#27ae60",
+      "type_service": "passager",
+      "usage": "local"
     },
     {
       "id": "val-ferry",
@@ -88,20 +106,34 @@
             "adulte_aller_retour": 35,
             "devise": "EUR"
           },
-          "frequence": "7j/7, départs 9h & 17h"
+          "frequence": "7j/7, départs 9h & 17h",
+          "type_service": "passager",
+          "usage": "local",
+          "transport_vehicules": false
         },
         {
           "route_id": "R-GPE-11",
           "nom": "Pointe-à-Pitre → Marie-Galante",
           "tarifs": {
             "adulte_aller_retour": 42,
-            "adulte_aller_retour_web": 38.80,
+            "adulte_aller_retour_web": 38.8,
             "devise": "EUR"
           },
           "horaires": {
-            "lun_sam": ["07:45", "12:30", "17:00"],
-            "dimanche": ["07:45", "16:45", "19:15"]
-          }
+            "lun_sam": [
+              "07:45",
+              "12:30",
+              "17:00"
+            ],
+            "dimanche": [
+              "07:45",
+              "16:45",
+              "19:15"
+            ]
+          },
+          "type_service": "passager",
+          "usage": "local",
+          "transport_vehicules": false
         },
         {
           "route_id": "R-REG-02",
@@ -110,10 +142,15 @@
             "adulte_aller_retour": "82-118",
             "devise": "EUR"
           },
-          "frequence": "Régulier"
+          "frequence": "Régulier",
+          "type_service": "passager",
+          "usage": "regional",
+          "transport_vehicules": false
         }
       ],
-      "couleur_carte": "#f39c12"
+      "couleur_carte": "#f39c12",
+      "type_service": "mixte",
+      "usage": "regional"
     },
     {
       "id": "frs-express",
@@ -125,7 +162,11 @@
       "flotte": {
         "type": "Navires rapides",
         "capacite": "380-446 places",
-        "equipements": ["Stabilisateurs SeaState dernière génération", "Salon climatisé", "Pont extérieur ouvert"]
+        "equipements": [
+          "Stabilisateurs SeaState dernière génération",
+          "Salon climatisé",
+          "Pont extérieur ouvert"
+        ]
       },
       "routes": [
         {
@@ -139,8 +180,19 @@
             "devise": "EUR",
             "note": "Bagages inclus"
           },
-          "horaires": ["08:15", "17:15", "19:30 (dim)"],
-          "services": ["Climatisation", "Bar", "Pont extérieur"]
+          "horaires": [
+            "08:15",
+            "17:15",
+            "19:30 (dim)"
+          ],
+          "services": [
+            "Climatisation",
+            "Bar",
+            "Pont extérieur"
+          ],
+          "type_service": "passager",
+          "usage": "local",
+          "transport_vehicules": false
         },
         {
           "route_id": "R-INT-01",
@@ -152,7 +204,10 @@
             "devise": "EUR",
             "type": "aller-retour"
           },
-          "frequence": "5-7x/semaine"
+          "frequence": "5-7x/semaine",
+          "type_service": "passager",
+          "usage": "international",
+          "transport_vehicules": false
         },
         {
           "route_id": "R-REG-01",
@@ -166,7 +221,13 @@
             "note": "Escale possible Dominique"
           },
           "frequence": "4-7x/semaine",
-          "services": ["Transport véhicules", "Bagages inclus"]
+          "services": [
+            "Transport véhicules",
+            "Bagages inclus"
+          ],
+          "type_service": "passager",
+          "usage": "regional",
+          "transport_vehicules": false
         },
         {
           "route_id": "R-INT-02",
@@ -176,7 +237,10 @@
             "adulte_aller_retour": "à partir de 99",
             "devise": "EUR"
           },
-          "frequence": "4-5x/semaine"
+          "frequence": "4-5x/semaine",
+          "type_service": "passager",
+          "usage": "international",
+          "transport_vehicules": false
         },
         {
           "route_id": "R-INT-03",
@@ -186,10 +250,15 @@
             "adulte_aller_retour": "70-95",
             "devise": "EUR"
           },
-          "frequence": "5-12x/semaine"
+          "frequence": "5-12x/semaine",
+          "type_service": "passager",
+          "usage": "international",
+          "transport_vehicules": false
         }
       ],
-      "couleur_carte": "#e74c3c"
+      "couleur_carte": "#e74c3c",
+      "type_service": "mixte",
+      "usage": "regional"
     },
     {
       "id": "blue-lines",
@@ -219,10 +288,35 @@
             "devise": "EUR",
             "date_maj": "2025-02-04"
           },
-          "horaires_fdf": ["06:30", "07:00", "07:55", "09:30", "11:15", "12:50", "14:30", "16:05", "17:15"],
-          "horaires_pb": ["06:00", "06:55", "09:00", "10:00", "12:20", "13:30", "15:35", "16:45"],
+          "horaires_fdf": [
+            "06:30",
+            "07:00",
+            "07:55",
+            "09:30",
+            "11:15",
+            "12:50",
+            "14:30",
+            "16:05",
+            "17:15"
+          ],
+          "horaires_pb": [
+            "06:00",
+            "06:55",
+            "09:00",
+            "10:00",
+            "12:20",
+            "13:30",
+            "15:35",
+            "16:45"
+          ],
           "frequence": "Toutes les 30 min en pointe",
-          "services": ["Service urbain quotidien", "Application mobile"]
+          "services": [
+            "Service urbain quotidien",
+            "Application mobile"
+          ],
+          "type_service": "navette_urbaine",
+          "usage": "urbain",
+          "transport_vehicules": false
         },
         {
           "route_id": "R-MTQ-02",
@@ -233,7 +327,10 @@
             "aller_retour": 7,
             "devise": "EUR"
           },
-          "frequence": "Régulier"
+          "frequence": "Régulier",
+          "type_service": "navette_urbaine",
+          "usage": "urbain",
+          "transport_vehicules": false
         },
         {
           "route_id": "R-MTQ-03",
@@ -243,7 +340,10 @@
             "aller_simple": 5,
             "aller_retour": 7,
             "devise": "EUR"
-          }
+          },
+          "type_service": "navette_urbaine",
+          "usage": "urbain",
+          "transport_vehicules": false
         },
         {
           "route_id": "R-MTQ-04",
@@ -252,10 +352,15 @@
             "aller_simple": 7.5,
             "devise": "EUR"
           },
-          "frequence": "Régulier"
+          "frequence": "Régulier",
+          "type_service": "navette_urbaine",
+          "usage": "urbain",
+          "transport_vehicules": false
         }
       ],
-      "couleur_carte": "#34495e"
+      "couleur_carte": "#34495e",
+      "type_service": "navette_urbaine",
+      "usage": "urbain"
     },
     {
       "id": "comadile",
@@ -279,7 +384,10 @@
             "retour": "16:30"
           },
           "jours": "Lun, Mer, Jeu, Ven, Sam",
-          "frequence": "5j/semaine"
+          "frequence": "5j/semaine",
+          "type_service": "passager",
+          "usage": "local",
+          "transport_vehicules": false
         },
         {
           "route_id": "R-GPE-16",
@@ -289,12 +397,20 @@
             "adulte_aller_simple": 30,
             "devise": "EUR"
           },
-          "horaires": ["08:00", "17:00"],
+          "horaires": [
+            "08:00",
+            "17:00"
+          ],
           "frequence": "7j/7, 2 traversées/jour",
-          "particularite": "SEULE liaison régulière vers La Désirade - Service essentiel"
+          "particularite": "SEULE liaison régulière vers La Désirade - Service essentiel",
+          "type_service": "passager",
+          "usage": "regional",
+          "transport_vehicules": false
         }
       ],
-      "couleur_carte": "#16a085"
+      "couleur_carte": "#16a085",
+      "type_service": "passager",
+      "usage": "local"
     },
     {
       "id": "voyager",
@@ -310,10 +426,15 @@
             "adulte": 70,
             "devise": "EUR"
           },
-          "frequence": "27x/semaine"
+          "frequence": "27x/semaine",
+          "type_service": "loisir",
+          "usage": "regional",
+          "transport_vehicules": false
         }
       ],
-      "couleur_carte": "#1abc9c"
+      "couleur_carte": "#1abc9c",
+      "type_service": "passager",
+      "usage": "regional"
     },
     {
       "id": "great-bay-express",
@@ -329,10 +450,15 @@
             "adulte": "75-120",
             "devise": "USD"
           },
-          "frequence": "19x/semaine"
+          "frequence": "19x/semaine",
+          "type_service": "loisir",
+          "usage": "regional",
+          "transport_vehicules": false
         }
       ],
-      "couleur_carte": "#3498db"
+      "couleur_carte": "#3498db",
+      "type_service": "passager",
+      "usage": "regional"
     }
   ],
   "notes": [
@@ -355,5 +481,20 @@
       "Flickr (licences CC)",
       "YouTube (captures vidéos)"
     ]
+  },
+  "classifications": {
+    "type_service": {
+      "passager": "Transport de passagers uniquement",
+      "fret": "Transport de marchandises",
+      "mixte": "Passagers et véhicules/fret",
+      "loisir": "Excursions touristiques",
+      "navette_urbaine": "Navette quotidienne courte distance"
+    },
+    "usage": {
+      "local": "Liaisons internes département (< 30 km)",
+      "regional": "Liaisons inter-îles Antilles (30-100 km)",
+      "international": "Liaisons internationales (> 100 km ou hors territoire français)",
+      "urbain": "Navettes urbaines quotidiennes (< 10 km)"
+    }
   }
 }

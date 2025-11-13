@@ -1,0 +1,352 @@
+{
+  "timestamp": "2025-01-13",
+  "description": "Transports terrestres et infrastructures à proximité des embarcadères des Antilles françaises",
+  "embarcaderes": [
+    {
+      "nom": "Gare Maritime de Bergevin",
+      "ville": "Pointe-à-Pitre",
+      "departement": "Guadeloupe",
+      "coordonnees": {
+        "lat": 16.241026,
+        "lon": -61.541387
+      },
+      "compagnies": ["FRS Express", "Val'Ferry", "Jeans for Freedom"],
+      "destinations": ["Marie-Galante", "Les Saintes", "Fort-de-France", "Dominique"],
+      "transport_terrestre": {
+        "arrets_bus": [
+          {
+            "nom": "Gare Maritime",
+            "distance_m": 50,
+            "lignes": ["T1", "T2", "T3", "T5"],
+            "operateur": "Karu'lis",
+            "description": "Arrêt principal devant la gare maritime",
+            "type": "arret_majeur"
+          },
+          {
+            "nom": "Bergevin",
+            "distance_m": 150,
+            "lignes": ["1", "2", "3", "5", "8"],
+            "operateur": "Karu'lis",
+            "description": "Toutes lignes vers centre-ville et périphérie"
+          }
+        ],
+        "parkings": [
+          {
+            "nom": "Parking Gare Maritime",
+            "type": "public",
+            "capacite": 200,
+            "distance_m": 100,
+            "tarif": "Payant",
+            "description": "Parking principal à proximité immédiate"
+          }
+        ],
+        "taxis": {
+          "station": true,
+          "distance_m": 50,
+          "description": "Station de taxis devant la gare"
+        },
+        "cheminement_pieton": {
+          "depuis_centre_ville": {
+            "distance_m": 800,
+            "duree_min": 10,
+            "accessibilite_pmr": "partielle",
+            "description": "Depuis Place de la Victoire via Rue Frébault"
+          }
+        }
+      },
+      "services_proximite": {
+        "commerces": true,
+        "restauration": true,
+        "distributeur": true,
+        "consigne": false
+      }
+    },
+    {
+      "nom": "Port départemental de Trois-Rivières",
+      "ville": "Trois-Rivières",
+      "departement": "Guadeloupe",
+      "coordonnees": {
+        "lat": 15.968105,
+        "lon": -61.645099
+      },
+      "compagnies": ["CTM Deher", "Karu'Ferry (si actif)", "Val'Ferry", "Navette Beatrix"],
+      "destinations": ["Terre-de-Haut (Les Saintes)", "Terre-de-Bas"],
+      "transport_terrestre": {
+        "arrets_bus": [
+          {
+            "nom": "Embarcadère Trois-Rivières",
+            "distance_m": 100,
+            "lignes": ["30"],
+            "operateur": "Karu'lis",
+            "description": "Liaison Basse-Terre - Trois-Rivières",
+            "frequence": "6-8 bus/jour"
+          }
+        ],
+        "parkings": [
+          {
+            "nom": "Parking de l'embarcadère",
+            "type": "public",
+            "capacite": 150,
+            "distance_m": 50,
+            "tarif": "Gratuit",
+            "description": "Parking gratuit surveillé"
+          }
+        ],
+        "taxis": {
+          "station": false,
+          "disponibilite": "sur appel",
+          "description": "Taxis disponibles sur réservation"
+        },
+        "cheminement_pieton": {
+          "depuis_bourg": {
+            "distance_m": 500,
+            "duree_min": 7,
+            "accessibilite_pmr": "bonne",
+            "description": "Accès direct depuis le bourg"
+          }
+        }
+      },
+      "services_proximite": {
+        "commerces": true,
+        "restauration": true,
+        "distributeur": true,
+        "consigne": false
+      }
+    },
+    {
+      "nom": "Gare Maritime de Fort-de-France",
+      "ville": "Fort-de-France",
+      "departement": "Martinique",
+      "coordonnees": {
+        "lat": 14.602701,
+        "lon": -61.064978
+      },
+      "compagnies": ["FRS Express", "Blue Lines"],
+      "destinations": ["Sainte-Lucie", "Dominique", "Pointe du Bout", "Anse Mitan", "Anse à l'Âne"],
+      "transport_terrestre": {
+        "arrets_bus": [
+          {
+            "nom": "Pointe Simon / Gare Maritime",
+            "distance_m": 50,
+            "lignes": ["A", "B", "C", "1", "2", "3", "5", "7", "8"],
+            "operateur": "Mozaïk",
+            "description": "Hub de transport en commun principal",
+            "type": "pole_multimodal"
+          }
+        ],
+        "parkings": [
+          {
+            "nom": "Parking Pointe Simon",
+            "type": "public",
+            "capacite": 300,
+            "distance_m": 200,
+            "tarif": "Payant",
+            "description": "Grand parking à proximité"
+          }
+        ],
+        "taxis": {
+          "station": true,
+          "distance_m": 100,
+          "description": "Station de taxis et taxis collectifs"
+        },
+        "cheminement_pieton": {
+          "depuis_centre": {
+            "distance_m": 400,
+            "duree_min": 5,
+            "accessibilite_pmr": "bonne",
+            "description": "Depuis La Savane via front de mer"
+          }
+        }
+      },
+      "services_proximite": {
+        "commerces": true,
+        "restauration": true,
+        "distributeur": true,
+        "consigne": false,
+        "billetterie": true
+      }
+    },
+    {
+      "nom": "Embarcadère de l'Anse Mitan",
+      "ville": "Trois-Îlets",
+      "departement": "Martinique",
+      "coordonnees": {
+        "lat": 14.551474,
+        "lon": -61.054744
+      },
+      "compagnies": ["Blue Lines"],
+      "destinations": ["Fort-de-France"],
+      "type_service": "navette_urbaine",
+      "transport_terrestre": {
+        "arrets_bus": [
+          {
+            "nom": "Anse Mitan Débarcadère",
+            "distance_m": 80,
+            "lignes": ["Navette Trois-Îlets"],
+            "operateur": "Local",
+            "description": "Navette locale vers Pointe du Bout",
+            "frequence": "Régulier"
+          }
+        ],
+        "parkings": [
+          {
+            "nom": "Parking de l'Anse",
+            "type": "public",
+            "capacite": 50,
+            "distance_m": 100,
+            "tarif": "Gratuit",
+            "description": "Petit parking à proximité"
+          }
+        ],
+        "taxis": {
+          "station": false,
+          "disponibilite": "présence régulière",
+          "description": "Taxis souvent présents aux arrivées"
+        },
+        "cheminement_pieton": {
+          "depuis_hotels": {
+            "distance_m": 200,
+            "duree_min": 3,
+            "accessibilite_pmr": "bonne",
+            "description": "Accès direct depuis zone hôtelière"
+          }
+        }
+      },
+      "services_proximite": {
+        "commerces": true,
+        "restauration": true,
+        "distributeur": false,
+        "plage": true
+      }
+    },
+    {
+      "nom": "Embarcadère de Pointe du Bout",
+      "ville": "Trois-Îlets",
+      "departement": "Martinique",
+      "coordonnees": {
+        "lat": 14.540522,
+        "lon": -61.035829
+      },
+      "compagnies": ["Blue Lines"],
+      "destinations": ["Fort-de-France"],
+      "type_service": "navette_urbaine",
+      "transport_terrestre": {
+        "arrets_bus": [
+          {
+            "nom": "Pointe du Bout Marina",
+            "distance_m": 150,
+            "lignes": ["Navette locale"],
+            "description": "Navette entre Pointe du Bout, Anse Mitan, Anse à l'Âne"
+          }
+        ],
+        "parkings": [
+          {
+            "nom": "Parking Marina",
+            "type": "public",
+            "capacite": 100,
+            "distance_m": 100,
+            "tarif": "Payant",
+            "description": "Parking de la marina"
+          }
+        ],
+        "taxis": {
+          "station": true,
+          "distance_m": 50,
+          "description": "Station taxis devant la marina"
+        },
+        "cheminement_pieton": {
+          "depuis_village": {
+            "distance_m": 300,
+            "duree_min": 4,
+            "accessibilite_pmr": "bonne",
+            "description": "Le long de la marina"
+          }
+        }
+      },
+      "services_proximite": {
+        "commerces": true,
+        "restauration": true,
+        "distributeur": true,
+        "hotels": true,
+        "marina": true
+      }
+    },
+    {
+      "nom": "Gare Maritime de Marigot",
+      "ville": "Marigot",
+      "departement": "Saint-Martin (collectivité)",
+      "coordonnees": {
+        "lat": 18.067778,
+        "lon": -63.082778
+      },
+      "compagnies": ["Voyager", "Service public Anguilla"],
+      "destinations": ["Saint-Barthélemy", "Anguilla"],
+      "transport_terrestre": {
+        "arrets_bus": [
+          {
+            "nom": "Marigot Waterfront",
+            "distance_m": 200,
+            "lignes": ["Lignes locales"],
+            "description": "Plusieurs lignes de minibus"
+          }
+        ],
+        "parkings": [
+          {
+            "nom": "Parking du port",
+            "type": "public",
+            "capacite": 80,
+            "distance_m": 150,
+            "tarif": "Payant",
+            "description": "Parking surveillé"
+          }
+        ],
+        "taxis": {
+          "station": true,
+          "distance_m": 100,
+          "description": "Station de taxis sur le front de mer"
+        },
+        "cheminement_pieton": {
+          "depuis_centre": {
+            "distance_m": 300,
+            "duree_min": 4,
+            "accessibilite_pmr": "moyenne",
+            "description": "Depuis le marché de Marigot"
+          }
+        }
+      },
+      "services_proximite": {
+        "commerces": true,
+        "restauration": true,
+        "distributeur": true,
+        "marche": true,
+        "douane": true
+      }
+    }
+  ],
+  "legende": {
+    "type_arret": {
+      "arret_majeur": "Arrêt principal avec nombreuses lignes",
+      "arret_secondaire": "Arrêt avec liaisons limitées",
+      "pole_multimodal": "Hub de correspondances"
+    },
+    "accessibilite_pmr": {
+      "bonne": "Accès PMR aménagé",
+      "partielle": "Accès PMR possible mais difficile",
+      "limitee": "Accès PMR difficile"
+    }
+  },
+  "operateurs_transport": {
+    "Guadeloupe": {
+      "nom": "Karu'lis",
+      "site_web": "https://www.karulis.fr",
+      "telephone": "0590 82 08 20",
+      "description": "Réseau de transport en commun de Guadeloupe"
+    },
+    "Martinique": {
+      "nom": "Mozaïk",
+      "site_web": "https://www.mozaik.mq",
+      "telephone": "0596 64 30 64",
+      "description": "Réseau de transport en commun de Martinique"
+    }
+  }
+}

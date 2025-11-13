@@ -1057,6 +1057,7 @@
             initializeSearch();
             loadGeoJSONRoutes(); // Charger les routes depuis export.geojson
             loadFerryTerminals(); // Charger les embarcadères OSM
+            loadTransportTerrestres(); // Charger transports terrestres
             switchTheme('local');
 
             console.log('✅ Maritime Analytics V11 - Prêt !');
@@ -1090,6 +1091,9 @@
             layers.routes = L.layerGroup().addTo(map);
             layers.geojsonRoutes = L.layerGroup().addTo(map); // Couche pour les routes GeoJSON
             layers.ferryTerminals = L.layerGroup().addTo(map); // Couche pour les embarcadères OSM
+            layers.busStops = L.layerGroup().addTo(map); // Couche arrêts de bus
+            layers.parkings = L.layerGroup().addTo(map); // Couche parkings
+            layers.pedestrianZones = L.layerGroup().addTo(map); // Couche cheminements piétons
 
             console.log('🗺️ Carte initialisée avec succès');
         }
@@ -1311,6 +1315,159 @@
                 .catch(error => {
                     console.error('❌ Erreur lors du chargement des embarcadères:', error);
                     // Ne pas alerter si le fichier n'existe pas (optionnel)
+                });
+        }
+
+        // ===== CHARGEMENT DES TRANSPORTS TERRESTRES =====
+        function loadTransportTerrestres() {
+            console.log('📥 Chargement des transports terrestres...');
+
+            fetch('transports_terrestres_embarcaderes.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(`✅ Transports terrestres chargés: ${data.embarcaderes.length} embarcadères`);
+
+                    data.embarcaderes.forEach(emb => {
+                        const embCoords = [emb.coordonnees.lat, emb.coordonnees.lon];
+
+                        // 1. Afficher les arrêts de bus
+                        if (emb.transport_terrestre.arrets_bus) {
+                            emb.transport_terrestre.arrets_bus.forEach(arret => {
+                                // Calculer position approximative
+                                const busCoords = [
+                                    emb.coordonnees.lat + (arret.distance_m / 111000),
+                                    emb.coordonnees.lon + (arret.distance_m / (111000 * Math.cos(emb.coordonnees.lat * Math.PI / 180)))
+                                ];
+
+                                const busMarker = L.circleMarker(busCoords, {
+                                    radius: 6,
+                                    color: '#ffffff',
+                                    weight: 2,
+                                    fillColor: '#f39c12',
+                                    fillOpacity: 0.8
+                                });
+
+                                const busPopup = `
+                                    <div class="popup-header" style="background: #f39c12;">
+                                        <div class="popup-title">🚌 ${arret.nom}</div>
+                                        <div class="popup-subtitle">Arrêt de bus</div>
+                                    </div>
+                                    <div class="popup-content">
+                                        <div class="popup-row">
+                                            <span class="popup-label">Distance de l'embarcadère:</span>
+                                            <span class="popup-value">${arret.distance_m}m</span>
+                                        </div>
+                                        ${arret.lignes ? `
+                                        <div class="popup-row">
+                                            <span class="popup-label">Lignes:</span>
+                                            <span class="popup-value">${arret.lignes.join(', ')}</span>
+                                        </div>
+                                        ` : ''}
+                                        ${arret.operateur ? `
+                                        <div class="popup-row">
+                                            <span class="popup-label">Opérateur:</span>
+                                            <span class="popup-value">${arret.operateur}</span>
+                                        </div>
+                                        ` : ''}
+                                        <div class="popup-row">
+                                            <span class="popup-label">Embarcadère proche:</span>
+                                            <span class="popup-value">${emb.nom}</span>
+                                        </div>
+                                    </div>
+                                `;
+
+                                busMarker.bindPopup(busPopup, {
+                                    maxWidth: 320,
+                                    className: 'modern-popup'
+                                });
+
+                                layers.busStops.addLayer(busMarker);
+                            });
+                        }
+
+                        // 2. Afficher les parkings
+                        if (emb.transport_terrestre.parkings) {
+                            emb.transport_terrestre.parkings.forEach(parking => {
+                                const parkCoords = [
+                                    emb.coordonnees.lat + (parking.distance_m / 111000),
+                                    emb.coordonnees.lon
+                                ];
+
+                                const parkMarker = L.marker(parkCoords, {
+                                    icon: L.divIcon({
+                                        className: 'parking-icon',
+                                        html: '<div style="background: #3498db; color: white; padding: 5px; border-radius: 50%; width: 20px; height: 20px; text-align: center; font-weight: bold;">P</div>',
+                                        iconSize: [30, 30]
+                                    })
+                                });
+
+                                const parkPopup = `
+                                    <div class="popup-header" style="background: #3498db;">
+                                        <div class="popup-title">🅿️ ${parking.nom}</div>
+                                        <div class="popup-subtitle">Parking</div>
+                                    </div>
+                                    <div class="popup-content">
+                                        <div class="popup-row">
+                                            <span class="popup-label">Type:</span>
+                                            <span class="popup-value">${parking.type}</span>
+                                        </div>
+                                        <div class="popup-row">
+                                            <span class="popup-label">Capacité:</span>
+                                            <span class="popup-value">${parking.capacite} places</span>
+                                        </div>
+                                        <div class="popup-row">
+                                            <span class="popup-label">Tarif:</span>
+                                            <span class="popup-value">${parking.tarif}</span>
+                                        </div>
+                                        <div class="popup-row">
+                                            <span class="popup-label">Distance:</span>
+                                            <span class="popup-value">${parking.distance_m}m de ${emb.nom}</span>
+                                        </div>
+                                    </div>
+                                `;
+
+                                parkMarker.bindPopup(parkPopup, {
+                                    maxWidth: 320,
+                                    className: 'modern-popup'
+                                });
+
+                                layers.parkings.addLayer(parkMarker);
+                            });
+                        }
+
+                        // 3. Afficher cercle de cheminement piéton
+                        if (emb.transport_terrestre.cheminement_pieton) {
+                            Object.values(emb.transport_terrestre.cheminement_pieton).forEach(chemin => {
+                                if (chemin.distance_m) {
+                                    const circle = L.circle(embCoords, {
+                                        radius: chemin.distance_m,
+                                        color: '#27ae60',
+                                        weight: 1,
+                                        opacity: 0.3,
+                                        fillColor: '#27ae60',
+                                        fillOpacity: 0.1
+                                    });
+
+                                    circle.bindTooltip(`Zone piétonne ${chemin.duree_min} min`, {
+                                        permanent: false,
+                                        direction: 'top'
+                                    });
+
+                                    layers.pedestrianZones.addLayer(circle);
+                                }
+                            });
+                        }
+                    });
+
+                    console.log('✅ Transports terrestres affichés sur la carte');
+                })
+                .catch(error => {
+                    console.error('❌ Erreur lors du chargement des transports terrestres:', error);
                 });
         }
 

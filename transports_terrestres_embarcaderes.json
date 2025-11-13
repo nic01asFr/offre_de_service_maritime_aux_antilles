@@ -321,6 +321,56 @@
         "marche": true,
         "douane": true
       }
+    },
+    {
+      "nom": "Embarcadère de Bouillante",
+      "ville": "Bouillante",
+      "departement": "Guadeloupe",
+      "coordonnees": {
+        "lat": 16.1296983,
+        "lon": -61.7706775
+      },
+      "compagnies": ["Services locaux"],
+      "destinations": ["Liaisons locales côte sous le vent"],
+      "transport_terrestre": {
+        "arrets_bus": [
+          {
+            "nom": "Bouillante bourg",
+            "distance_m": 800,
+            "lignes": ["Lignes locales"],
+            "description": "Depuis le bourg vers la côte"
+          }
+        ],
+        "parkings": [
+          {
+            "nom": "Stationnement côtier",
+            "type": "public",
+            "capacite": 20,
+            "distance_m": 50,
+            "tarif": "Gratuit",
+            "description": "Stationnement informel près de l'anse"
+          }
+        ],
+        "taxis": {
+          "station": false,
+          "disponibilite": "sur appel",
+          "description": "Taxis sur réservation depuis le bourg"
+        },
+        "cheminement_pieton": {
+          "depuis_bourg": {
+            "distance_m": 800,
+            "duree_min": 10,
+            "accessibilite_pmr": "limitee",
+            "description": "Descente vers la côte depuis le bourg"
+          }
+        }
+      },
+      "services_proximite": {
+        "commerces": false,
+        "restauration": false,
+        "distributeur": false,
+        "consigne": false
+      }
     }
   ],
   "legende": {

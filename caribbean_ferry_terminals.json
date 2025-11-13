@@ -1912,12 +1912,12 @@
       "name": "Embarcadère de Bouillante",
       "country": "France",
       "zone": "Guadeloupe",
-      "lat": 16.1319557,
-      "lon": -61.7699572,
+      "lat": 16.1296983,
+      "lon": -61.7706775,
       "osm_type": "relation",
       "osm_id": 278474,
       "amenity": "ferry_terminal",
-      "source": "Validated OSM Nominatim 2025-01-13"
+      "source": "Anse de Bouillante (côte) - OSM 2025-01-13"
     },
     {
       "name": "Gare Maritime de Fort-de-France",

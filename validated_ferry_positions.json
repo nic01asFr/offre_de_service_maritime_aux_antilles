@@ -27,12 +27,12 @@
     {
       "zone": "Guadeloupe",
       "nom": "Embarcadère de Bouillante",
-      "lat": 16.1319557,
-      "lon": -61.7699572,
+      "lat": 16.1296983,
+      "lon": -61.7706775,
       "osm_type": "relation",
       "osm_id": 278474,
-      "display_name": "Bouillante, Basse-Terre, Guadeloupe, 97125, France",
-      "recherche": "Bouillante Guadeloupe"
+      "display_name": "Anse de Bouillante, Basse-Terre, Guadeloupe",
+      "recherche": "Anse de Bouillante (côte)"
     },
     {
       "zone": "Martinique",

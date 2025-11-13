@@ -1,0 +1,16 @@
+{
+  "timestamp": "2025-01-13",
+  "description": "Recherche embarcadère Bouillante (côte)",
+  "total": 1,
+  "results": [
+    {
+      "query": "Anse de Bouillante",
+      "name": "Anse de Bouillante, Courbaril, Guadeloupe, 97125, France",
+      "lat": 16.1296983,
+      "lon": -61.7706775,
+      "osm_type": "node",
+      "osm_id": 5315033488,
+      "type": "bay"
+    }
+  ]
+}

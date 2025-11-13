@@ -1,6 +1,6 @@
 {
   "timestamp": "2025-01-13",
-  "total": 146,
+  "total": 150,
   "by_zone": {
     "Guadeloupe": 75,
     "Martinique": 71
@@ -23,14 +23,15 @@
       "zone": "Guadeloupe",
       "osm_type": "node",
       "osm_id": 285698227,
-      "lat": 15.9681046,
-      "lon": -61.645099,
+      "lat": 15.9680013,
+      "lon": -61.6451591,
       "name": "Port départemental de Trois-Rivières",
       "amenity": "ferry_terminal",
       "public_transport": "station",
       "operator": "Non specifie",
       "ferry": "yes",
-      "wheelchair": ""
+      "wheelchair": "",
+      "source": "Validated OSM Nominatim 2025-01-13"
     },
     {
       "zone": "Guadeloupe",
@@ -374,14 +375,15 @@
       "zone": "Guadeloupe",
       "osm_type": "way",
       "osm_id": 27266268,
-      "lat": 16.2410257,
-      "lon": -61.5413871,
+      "lat": 16.2410225,
+      "lon": -61.5407168,
       "name": "Gare Maritime de Bergevin",
       "amenity": "ferry_terminal",
       "public_transport": "station",
       "operator": "Grand Port Maritime de la Guadeloupe (GPMG)",
       "ferry": "yes",
-      "wheelchair": ""
+      "wheelchair": "",
+      "source": "Validated OSM Nominatim 2025-01-13"
     },
     {
       "zone": "Guadeloupe",
@@ -998,27 +1000,29 @@
       "zone": "Martinique",
       "osm_type": "node",
       "osm_id": 1100273020,
-      "lat": 14.5410095,
-      "lon": -61.0663063,
+      "lat": 14.5361605,
+      "lon": -61.0672827,
       "name": "Embarcadère de l'Anse à l'Âne",
       "amenity": "ferry_terminal",
       "public_transport": "",
       "operator": "Non specifie",
       "ferry": "",
-      "wheelchair": ""
+      "wheelchair": "",
+      "source": "Validated OSM Nominatim 2025-01-13"
     },
     {
       "zone": "Martinique",
       "osm_type": "node",
       "osm_id": 1100289805,
-      "lat": 14.5514739,
-      "lon": -61.0547441,
+      "lat": 14.5522523,
+      "lon": -61.0535639,
       "name": "Embarcadère de l'Anse Mitan",
       "amenity": "ferry_terminal",
       "public_transport": "",
       "operator": "Non specifie",
       "ferry": "",
-      "wheelchair": "limited"
+      "wheelchair": "limited",
+      "source": "Validated OSM Nominatim 2025-01-13"
     },
     {
       "zone": "Martinique",
@@ -1903,6 +1907,52 @@
       "operator": "Non specifie",
       "ferry": "",
       "wheelchair": ""
+    },
+    {
+      "name": "Embarcadère de Bouillante",
+      "country": "France",
+      "zone": "Guadeloupe",
+      "lat": 16.1319557,
+      "lon": -61.7699572,
+      "osm_type": "relation",
+      "osm_id": 278474,
+      "amenity": "ferry_terminal",
+      "source": "Validated OSM Nominatim 2025-01-13"
+    },
+    {
+      "name": "Gare Maritime de Fort-de-France",
+      "country": "France",
+      "zone": "Martinique",
+      "lat": 14.6019226,
+      "lon": -61.0645629,
+      "osm_type": "way",
+      "osm_id": 94859651,
+      "amenity": "ferry_terminal",
+      "source": "Validated OSM Nominatim 2025-01-13"
+    },
+    {
+      "name": "Embarcadère Pointe du Bout",
+      "country": "France",
+      "zone": "Martinique",
+      "lat": 14.557206,
+      "lon": -61.0518837,
+      "osm_type": "node",
+      "osm_id": 5381422109,
+      "amenity": "ferry_terminal",
+      "source": "Validated OSM Nominatim 2025-01-13"
+    },
+    {
+      "name": "Gare Maritime de Marigot",
+      "country": "France",
+      "zone": "Saint-Martin",
+      "lat": 18.068873,
+      "lon": -63.0859335,
+      "osm_type": "way",
+      "osm_id": 258413683,
+      "amenity": "ferry_terminal",
+      "source": "Validated OSM Nominatim 2025-01-13"
     }
-  ]
+  ],
+  "last_update": "2025-01-13",
+  "validation_note": "Positions des ports français validées avec OSM Nominatim"
 }

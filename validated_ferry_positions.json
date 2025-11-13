@@ -1,0 +1,88 @@
+{
+  "timestamp": "2025-01-13",
+  "source": "OpenStreetMap Nominatim API - Positions validées",
+  "description": "Positions précises et validées des embarcadères clés des Antilles françaises",
+  "total": 8,
+  "terminals": [
+    {
+      "zone": "Guadeloupe",
+      "nom": "Gare Maritime de Bergevin",
+      "lat": 16.2410225,
+      "lon": -61.5407168,
+      "osm_type": "way",
+      "osm_id": 275833057,
+      "display_name": "Gare Maritime de Bergevin Parking, Boulevard Chanzy, Gare maritime, Pointe-à-Pitre, Guadeloupe, 97110, France",
+      "source": "Nominatim"
+    },
+    {
+      "zone": "Guadeloupe",
+      "nom": "Port de Trois-Rivières",
+      "lat": 15.9680013,
+      "lon": -61.6451591,
+      "osm_type": "way",
+      "osm_id": 41423678,
+      "display_name": "Port de pêche de Trois-Rivières, Guadeloupe, France",
+      "recherche": "Trois-Rivières port Guadeloupe"
+    },
+    {
+      "zone": "Guadeloupe",
+      "nom": "Embarcadère de Bouillante",
+      "lat": 16.1319557,
+      "lon": -61.7699572,
+      "osm_type": "relation",
+      "osm_id": 278474,
+      "display_name": "Bouillante, Basse-Terre, Guadeloupe, 97125, France",
+      "recherche": "Bouillante Guadeloupe"
+    },
+    {
+      "zone": "Martinique",
+      "nom": "Gare Maritime de Fort-de-France",
+      "lat": 14.6019226,
+      "lon": -61.0645629,
+      "osm_type": "way",
+      "osm_id": 94859651,
+      "display_name": "Gare Maritime, Lotissement Bougainvilliers, Fort-de-France, Martinique, 97200, France",
+      "source": "Nominatim"
+    },
+    {
+      "zone": "Martinique",
+      "nom": "Embarcadère Anse Mitan",
+      "lat": 14.5522523,
+      "lon": -61.0535639,
+      "osm_type": "way",
+      "osm_id": 483033029,
+      "display_name": "Plage de l'Anse Mitan, Hameau de la Baie du Golf, Les Trois-Îlets, Le Marin, Martinique, 97229, France",
+      "recherche": "Anse Mitan Trois-Îlets"
+    },
+    {
+      "zone": "Martinique",
+      "nom": "Embarcadère Pointe du Bout",
+      "lat": 14.557206,
+      "lon": -61.0518837,
+      "osm_type": "node",
+      "osm_id": 5381422109,
+      "display_name": "La Pointe du Bout, Les Trois-Îlets, Le Marin, Martinique, 97229, France",
+      "recherche": "Pointe du Bout Trois-Îlets"
+    },
+    {
+      "zone": "Martinique",
+      "nom": "Embarcadère Anse à l'Âne",
+      "lat": 14.5361605,
+      "lon": -61.0672827,
+      "osm_type": "way",
+      "osm_id": 42725953,
+      "display_name": "Anse à l'Ane, Papias, Les Trois-Îlets, Le Marin, Martinique, 97229, France",
+      "recherche": "Anse à l'Âne Martinique"
+    },
+    {
+      "zone": "Saint-Martin",
+      "nom": "Gare Maritime de Marigot",
+      "lat": 18.068873,
+      "lon": -63.0859335,
+      "osm_type": "way",
+      "osm_id": 258413683,
+      "display_name": "Gare Maritime de Marigot, Boulevard du Docteur Hubert Petit, Galisbay, Marigot, Saint-Martin (France), Saint-Martin, 97150, France",
+      "source": "Nominatim"
+    }
+  ]
+}

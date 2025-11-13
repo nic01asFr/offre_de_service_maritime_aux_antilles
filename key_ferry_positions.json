@@ -1,0 +1,38 @@
+{
+  "timestamp": "2025-01-13",
+  "source": "OpenStreetMap Nominatim API",
+  "description": "Positions précises des embarcadères clés Antilles françaises",
+  "total": 3,
+  "terminals": [
+    {
+      "zone": "Guadeloupe",
+      "nom": "Gare Maritime de Bergevin",
+      "lat": 16.2410225,
+      "lon": -61.5407168,
+      "osm_type": "way",
+      "osm_id": 275833057,
+      "display_name": "Gare Maritime de Bergevin Parking, Boulevard Chanzy, Gare maritime, Pointe-à-Pitre, Guadeloupe, 97110, France",
+      "source": "Nominatim"
+    },
+    {
+      "zone": "Martinique",
+      "nom": "Gare Maritime de Fort-de-France",
+      "lat": 14.6019226,
+      "lon": -61.0645629,
+      "osm_type": "way",
+      "osm_id": 94859651,
+      "display_name": "Gare Maritime, Lotissement Bougainvilliers, Fort-de-France, Martinique, 97200, France",
+      "source": "Nominatim"
+    },
+    {
+      "zone": "Saint-Martin",
+      "nom": "Gare Maritime de Marigot",
+      "lat": 18.068873,
+      "lon": -63.0859335,
+      "osm_type": "way",
+      "osm_id": 258413683,
+      "display_name": "Gare Maritime de Marigot, Boulevard du Docteur Hubert Petit, Galisbay, Marigot, Saint-Martin (France), Saint-Martin, 97150, France",
+      "source": "Nominatim"
+    }
+  ]
+}

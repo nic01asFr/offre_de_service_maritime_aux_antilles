@@ -7,8 +7,8 @@
       "ville": "Pointe-à-Pitre",
       "departement": "Guadeloupe",
       "coordonnees": {
-        "lat": 16.241026,
-        "lon": -61.541387
+        "lat": 16.2410225,
+        "lon": -61.5407168
       },
       "compagnies": ["FRS Express", "Val'Ferry", "Jeans for Freedom"],
       "destinations": ["Marie-Galante", "Les Saintes", "Fort-de-France", "Dominique"],
@@ -66,8 +66,8 @@
       "ville": "Trois-Rivières",
       "departement": "Guadeloupe",
       "coordonnees": {
-        "lat": 15.968105,
-        "lon": -61.645099
+        "lat": 15.9680013,
+        "lon": -61.6451591
       },
       "compagnies": ["CTM Deher", "Karu'Ferry (si actif)", "Val'Ferry", "Navette Beatrix"],
       "destinations": ["Terre-de-Haut (Les Saintes)", "Terre-de-Bas"],
@@ -118,8 +118,8 @@
       "ville": "Fort-de-France",
       "departement": "Martinique",
       "coordonnees": {
-        "lat": 14.602701,
-        "lon": -61.064978
+        "lat": 14.6019226,
+        "lon": -61.0645629
       },
       "compagnies": ["FRS Express", "Blue Lines"],
       "destinations": ["Sainte-Lucie", "Dominique", "Pointe du Bout", "Anse Mitan", "Anse à l'Âne"],
@@ -171,8 +171,8 @@
       "ville": "Trois-Îlets",
       "departement": "Martinique",
       "coordonnees": {
-        "lat": 14.551474,
-        "lon": -61.054744
+        "lat": 14.5522523,
+        "lon": -61.0535639
       },
       "compagnies": ["Blue Lines"],
       "destinations": ["Fort-de-France"],
@@ -224,8 +224,8 @@
       "ville": "Trois-Îlets",
       "departement": "Martinique",
       "coordonnees": {
-        "lat": 14.540522,
-        "lon": -61.035829
+        "lat": 14.557206,
+        "lon": -61.0518837
       },
       "compagnies": ["Blue Lines"],
       "destinations": ["Fort-de-France"],
@@ -276,8 +276,8 @@
       "ville": "Marigot",
       "departement": "Saint-Martin (collectivité)",
       "coordonnees": {
-        "lat": 18.067778,
-        "lon": -63.082778
+        "lat": 18.068873,
+        "lon": -63.0859335
       },
       "compagnies": ["Voyager", "Service public Anguilla"],
       "destinations": ["Saint-Barthélemy", "Anguilla"],

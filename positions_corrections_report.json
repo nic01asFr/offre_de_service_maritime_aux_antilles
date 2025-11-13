@@ -1,0 +1,112 @@
+{
+  "timestamp": "2025-01-13",
+  "description": "Rapport de comparaison des positions d'embarcadères",
+  "total_ports_valides": 8,
+  "corrections_necessaires": 3,
+  "corrections_mineures": 3,
+  "ports_absents": 2,
+  "corrections": [
+    {
+      "port": "Gare Maritime de Bergevin",
+      "status": "correction_mineure",
+      "distance_m": 71.5,
+      "ancienne_position": {
+        "lat": 16.241026,
+        "lon": -61.541387
+      },
+      "nouvelle_position": {
+        "lat": 16.2410225,
+        "lon": -61.5407168
+      },
+      "osm_reference": "way/275833057"
+    },
+    {
+      "port": "Port de Trois-Rivières",
+      "status": "correction_mineure",
+      "distance_m": 13.2,
+      "ancienne_position": {
+        "lat": 15.968105,
+        "lon": -61.645099
+      },
+      "nouvelle_position": {
+        "lat": 15.9680013,
+        "lon": -61.6451591
+      },
+      "osm_reference": "way/41423678"
+    },
+    {
+      "port": "Embarcadère de Bouillante",
+      "status": "absent",
+      "action": "Ajouter au fichier transports_terrestres_embarcaderes.json",
+      "position_validee": {
+        "lat": 16.1319557,
+        "lon": -61.7699572
+      }
+    },
+    {
+      "port": "Gare Maritime de Fort-de-France",
+      "status": "correction_mineure",
+      "distance_m": 97.4,
+      "ancienne_position": {
+        "lat": 14.602701,
+        "lon": -61.064978
+      },
+      "nouvelle_position": {
+        "lat": 14.6019226,
+        "lon": -61.0645629
+      },
+      "osm_reference": "way/94859651"
+    },
+    {
+      "port": "Embarcadère Anse Mitan",
+      "status": "correction_necessaire",
+      "distance_m": 153.7,
+      "ancienne_position": {
+        "lat": 14.551474,
+        "lon": -61.054744
+      },
+      "nouvelle_position": {
+        "lat": 14.5522523,
+        "lon": -61.0535639
+      },
+      "osm_reference": "way/483033029"
+    },
+    {
+      "port": "Embarcadère Pointe du Bout",
+      "status": "correction_necessaire",
+      "distance_m": 2535.3,
+      "ancienne_position": {
+        "lat": 14.540522,
+        "lon": -61.035829
+      },
+      "nouvelle_position": {
+        "lat": 14.557206,
+        "lon": -61.0518837
+      },
+      "osm_reference": "node/5381422109"
+    },
+    {
+      "port": "Embarcadère Anse à l'Âne",
+      "status": "absent",
+      "action": "Ajouter au fichier transports_terrestres_embarcaderes.json",
+      "position_validee": {
+        "lat": 14.5361605,
+        "lon": -61.0672827
+      }
+    },
+    {
+      "port": "Gare Maritime de Marigot",
+      "status": "correction_necessaire",
+      "distance_m": 355.1,
+      "ancienne_position": {
+        "lat": 18.067778,
+        "lon": -63.082778
+      },
+      "nouvelle_position": {
+        "lat": 18.068873,
+        "lon": -63.0859335
+      },
+      "osm_reference": "way/258413683"
+    }
+  ]
+}

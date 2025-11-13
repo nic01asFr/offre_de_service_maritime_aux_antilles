@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maritime Analytics V11 - Transport Maritime des Antilles | Analyse Exhaustive 2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        /* ===== RESET & BASE ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --background: #f8fafc;
+            --surface: #ffffff;
+            --surface-hover: #f1f5f9;
+            --border: #e2e8f0;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --radius: 8px;
+            --radius-lg: 12px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow: hidden;
+        }
+
+        /* ===== LAYOUT PRINCIPAL ===== */
+        .app-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* ===== HEADER MODERNE ===== */
+        .header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 1.5rem;
+            box-shadow: var(--shadow-sm);
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: none;
+        }
+
+        .header-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .header-title h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .version-badge {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--surface);
+            color: var(--text-primary);
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn:hover {
+            background: var(--surface-hover);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            border-color: var(--primary-dark);
+            color: white;
+        }
+
+        /* ===== NAVIGATION THÉMATIQUE ===== */
+        .main-content {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .theme-nav {
+            width: 280px;
+            background: var(--surface);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .theme-nav-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .theme-nav-header h2 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .theme-nav-header p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .theme-tabs {
+            flex: 1;
+            padding: 1rem;
+        }
+
+        .theme-tab {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            background: var(--surface);
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .theme-tab:hover {
+            background: var(--surface-hover);
+            border-color: var(--primary);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .theme-tab.active {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .theme-tab-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .theme-tab-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .theme-tab-count {
+            font-size: 0.75rem;
+            opacity: 0.8;
+        }
+
+        .theme-tab-description {
+            font-size: 0.75rem;
+            opacity: 0.7;
+            margin-top: 0.25rem;
+        }
+
+        /* ===== ZONE PRINCIPALE ===== */
+        .map-container {
+            flex: 1;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .map-header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .map-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .map-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .stats-mini {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .stat-mini {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .stat-mini-value {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        #map {
+            flex: 1;
+            position: relative;
+        }
+
+        /* ===== PANNEAU DE CONTRÔLE FLOTTANT ===== */
+        .floating-panel {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 320px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            z-index: 500;
+            max-height: calc(100vh - 180px);
+            overflow-y: auto;
+        }
+
+        .floating-panel.collapsed {
+            width: auto;
+        }
+
+        .panel-header {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+
+        .panel-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .panel-toggle {
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: var(--radius);
+            background: var(--surface-hover);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .panel-toggle:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .panel-content {
+            padding: 1rem;
+        }
+
+        .floating-panel.collapsed .panel-content {
+            display: none;
+        }
+
+        /* ===== FILTRES MODERNES ===== */
+        .filter-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .filter-section-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .filter-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.5rem;
+        }
+
+        .filter-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--surface);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .filter-item:hover {
+            background: var(--surface-hover);
+            border-color: var(--primary);
+        }
+
+        .filter-item.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .filter-checkbox {
+            width: 1rem;
+            height: 1rem;
+            border: 2px solid var(--border);
+            border-radius: 3px;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .filter-item.active .filter-checkbox {
+            background: white;
+            border-color: white;
+        }
+
+        .filter-item.active .filter-checkbox::after {
+            content: '✓';
+            position: absolute;
+            top: -2px;
+            left: 1px;
+            font-size: 0.75rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .filter-label {
+            flex: 1;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .filter-count {
+            font-size: 0.75rem;
+            opacity: 0.8;
+            font-weight: 600;
+        }
+
+        .color-indicator {
+            width: 1rem;
+            height: 0.25rem;
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        /* ===== STATISTIQUES AVANCÉES ===== */
+        .stats-section {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 1.5rem;
+            border-radius: var(--radius-lg);
+            margin-bottom: 1.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .stat-card {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+        }
+
+        /* ===== SEARCH BAR ===== */
+        .search-box {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--surface);
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgb(37 99 235 / 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* ===== LÉGENDE MODERNE ===== */
+        .legend-section {
+            background: var(--surface-hover);
+            padding: 1rem;
+            border-radius: var(--radius);
+            margin-bottom: 1.5rem;
+        }
+
+        .legend-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .legend-items {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .legend-marker {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .legend-line {
+            width: 1.5rem;
+            height: 0.25rem;
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        /* ===== POPUP AMÉLIORÉ ===== */
+        .leaflet-popup-content {
+            margin: 0;
+            min-width: 280px;
+            font-family: inherit;
+        }
+
+        .popup-header {
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            margin: -15px -20px 1rem -20px;
+            border-radius: var(--radius) var(--radius) 0 0;
+        }
+
+        .popup-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .popup-subtitle {
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+
+        .popup-content {
+            padding: 0 0.5rem;
+        }
+
+        .popup-row {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.875rem;
+        }
+
+        .popup-row:last-child {
+            border-bottom: none;
+        }
+
+        .popup-label {
+            font-weight: 500;
+            color: var(--text-secondary);
+            min-width: 80px;
+        }
+
+        .popup-value {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .company-tag {
+            background: var(--primary);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .theme-nav {
+                width: 240px;
+            }
+            
+            .floating-panel {
+                width: 280px;
+                right: 0.5rem;
+                top: 0.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: stretch;
+            }
+            
+            .header-title {
+                justify-content: center;
+            }
+            
+            .theme-nav {
+                width: 200px;
+            }
+            
+            .floating-panel {
+                position: relative;
+                width: 100%;
+                top: 0;
+                right: 0;
+                margin: 1rem;
+                max-height: none;
+            }
+            
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .map-container {
+                order: -1;
+                height: 60vh;
+            }
+        }
+
+        /* ===== MODE PLEIN ÉCRAN ===== */
+        .fullscreen-mode .theme-nav {
+            display: none;
+        }
+
+        .fullscreen-mode .floating-panel {
+            top: 4rem;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        .fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            color: var(--text-muted);
+        }
+
+        .loading::after {
+            content: '';
+            width: 1rem;
+            height: 1rem;
+            border: 2px solid var(--border);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 0.5rem;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ===== THÈME SOMBRE (optionnel) ===== */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --background: #020617;
+                --surface: #0f172a;
+                --surface-hover: #1e293b;
+                --border: #334155;
+                --text-primary: #f8fafc;
+                --text-secondary: #cbd5e1;
+                --text-muted: #94a3b8;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header moderne -->
+        <header class="header">
+            <div class="header-content">
+                <div class="header-title">
+                    <h1>🗺️ Maritime Analytics</h1>
+                    <span class="version-badge">V11</span>
+                </div>
+                <div class="header-actions">
+                    <button class="btn" onclick="toggleFullscreen()">
+                        <span>📱</span> Plein écran
+                    </button>
+                    <button class="btn" onclick="exportData()">
+                        <span>📊</span> Export
+                    </button>
+                    <button class="btn btn-primary" onclick="showAbout()">
+                        <span>ℹ️</span> À propos
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Navigation thématique -->
+            <nav class="theme-nav">
+                <div class="theme-nav-header">
+                    <h2>Thématiques</h2>
+                    <p>Sélectionnez un axe d'analyse</p>
+                </div>
+                
+                <div class="theme-tabs">
+                    <button class="theme-tab active" data-theme="local" onclick="switchTheme('local')">
+                        <span class="theme-tab-icon">🏝️</span>
+                        <div class="theme-tab-title">Liaisons Locales</div>
+                        <div class="theme-tab-count">21 routes</div>
+                        <div class="theme-tab-description">Inter-îles par archipel</div>
+                    </button>
+                    
+                    <button class="theme-tab" data-theme="regional" onclick="switchTheme('regional')">
+                        <span class="theme-tab-icon">🌊</span>
+                        <div class="theme-tab-title">Liaisons Régionales</div>
+                        <div class="theme-tab-count">6 routes</div>
+                        <div class="theme-tab-description">Entre les archipels</div>
+                    </button>
+                    
+                    <button class="theme-tab" data-theme="international" onclick="switchTheme('international')">
+                        <span class="theme-tab-icon">🚢</span>
+                        <div class="theme-tab-title">Liaisons Internationales</div>
+                        <div class="theme-tab-count">8 routes</div>
+                        <div class="theme-tab-description">Vers îles voisines</div>
+                    </button>
+                    
+                    <button class="theme-tab" data-theme="navettes" onclick="switchTheme('navettes')">
+                        <span class="theme-tab-icon">🚤</span>
+                        <div class="theme-tab-title">Navettes Urbaines</div>
+                        <div class="theme-tab-count">7 routes</div>
+                        <div class="theme-tab-description">Courte distance</div>
+                    </button>
+                    
+                    <button class="theme-tab" data-theme="overview" onclick="switchTheme('overview')">
+                        <span class="theme-tab-icon">📊</span>
+                        <div class="theme-tab-title">Vue d'ensemble</div>
+                        <div class="theme-tab-count">42 routes</div>
+                        <div class="theme-tab-description">Analyse globale</div>
+                    </button>
+                </div>
+            </nav>
+
+            <!-- Zone principale avec carte -->
+            <div class="map-container">
+                <div class="map-header">
+                    <h2 class="map-title" id="currentThemeTitle">Liaisons Inter-îles Locales</h2>
+                    <div class="map-controls">
+                        <div class="stats-mini">
+                            <div class="stat-mini">
+                                <span>Routes:</span>
+                                <span class="stat-mini-value" id="visibleRoutes">21</span>
+                            </div>
+                            <div class="stat-mini">
+                                <span>Ports:</span>
+                                <span class="stat-mini-value" id="visiblePorts">15</span>
+                            </div>
+                            <div class="stat-mini">
+                                <span>Compagnies:</span>
+                                <span class="stat-mini-value" id="visibleCompanies">8</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="map"></div>
+                
+                <!-- Panneau de contrôle flottant -->
+                <div class="floating-panel" id="controlPanel">
+                    <div class="panel-header" onclick="togglePanel()">
+                        <span class="panel-title">🎛️ Contrôles & Filtres</span>
+                        <div class="panel-toggle">−</div>
+                    </div>
+                    
+                    <div class="panel-content">
+                        <!-- Statistiques contextuelles -->
+                        <div class="stats-section">
+                            <div class="stats-grid">
+                                <div class="stat-card">
+                                    <div class="stat-value" id="themeRoutes">21</div>
+                                    <div class="stat-label">Routes</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-value" id="themePorts">15</div>
+                                    <div class="stat-label">Ports</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-value" id="themeCompanies">8</div>
+                                    <div class="stat-label">Compagnies</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-value" id="themeFrequency">240+</div>
+                                    <div class="stat-label">Rotations/sem</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recherche -->
+                        <div class="search-box">
+                            <span class="search-icon">🔍</span>
+                            <input type="text" class="search-input" id="searchInput" placeholder="Rechercher un port, une île, une compagnie...">
+                        </div>
+
+                        <!-- Filtres par territoire -->
+                        <div class="filter-section" id="territoryFilters">
+                            <div class="filter-section-title">
+                                <span>🗺️</span> Territoire
+                            </div>
+                            <div class="filter-grid" id="territoryFilterGrid">
+                                <!-- Généré dynamiquement -->
+                            </div>
+                        </div>
+
+                        <!-- Filtres par compagnie -->
+                        <div class="filter-section" id="companyFilters">
+                            <div class="filter-section-title">
+                                <span>🚢</span> Compagnies
+                            </div>
+                            <div class="filter-grid" id="companyFilterGrid">
+                                <!-- Généré dynamiquement -->
+                            </div>
+                        </div>
+
+                        <!-- Légende -->
+                        <div class="legend-section">
+                            <div class="legend-title">
+                                <span>📍</span> Légende
+                            </div>
+                            <div class="legend-items" id="legendItems">
+                                <!-- Généré dynamiquement -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        console.log('🚀 Maritime Analytics V11 - Initialisation...');
+        
+        // ===== CONFIGURATION GLOBALE =====
+        const CONFIG = {
+            version: 'V11',
+            title: 'Maritime Analytics - Transport Maritime des Antilles',
+            center: [15.5, -61.3],
+            zoom: 9,
+            minZoom: 7,
+            maxZoom: 16
+        };
+
+        // ===== ÉTAT GLOBAL =====
+        let map = null;
+        let currentTheme = 'local';
+        let layers = {};
+        let markers = {};
+        let isFullscreen = false;
+        let isPanelCollapsed = false;
+
+        // ===== DONNÉES - PORTS =====
+        const portsData = [
+            // GUADELOUPE
+            {nom: "Pointe-à-Pitre", fullName: "Gare Maritime de Bergevin", coords: [-61.5331, 16.2410], type: "principal", territoire: "Guadeloupe", compagnies: ["FRS Express", "Val'Ferry"], destinations: ["Marie-Galante", "Les Saintes", "Martinique", "Dominique", "Sainte-Lucie"], info: "Hub maritime principal de la Guadeloupe"},
+            {nom: "Trois-Rivières", coords: [-61.6500, 15.9667], type: "principal", territoire: "Guadeloupe", compagnies: ["CTM Deher", "Karu'Ferry", "Val'Ferry", "Navette Beatrix"], destinations: ["Les Saintes"], info: "Point de départ principal vers Les Saintes (20+ rotations/jour)"},
+            {nom: "Saint-François", fullName: "Port de Pêche", coords: [-61.271323, 16.249601], type: "principal", territoire: "Guadeloupe", compagnies: ["Comadile", "Comatrile"], destinations: ["Marie-Galante", "La Désirade", "Les Saintes"], info: "Desserte de l'est de la Guadeloupe"},
+            {nom: "Bouillante", coords: [-61.7667, 16.1333], type: "principal", territoire: "Guadeloupe", compagnies: ["Karu'Ferry"], destinations: ["Les Saintes"], info: "Service saisonnier (juillet-août, novembre-mars)"},
+            {nom: "Terre-de-Haut", fullName: "Les Saintes - Terre-de-Haut", coords: [-61.5833, 15.8667], type: "secondaire", territoire: "Guadeloupe", info: "Principale île des Saintes, destination touristique majeure"},
+            {nom: "Terre-de-Bas", fullName: "Les Saintes - Terre-de-Bas", coords: [-61.6167, 15.8500], type: "secondaire", territoire: "Guadeloupe", info: "Seconde île des Saintes, plus préservée"},
+            {nom: "Grand-Bourg", fullName: "Marie-Galante - Grand-Bourg", coords: [-61.3200, 15.8850], type: "secondaire", territoire: "Guadeloupe", info: "Port principal de Marie-Galante"},
+            {nom: "Saint-Louis", fullName: "Marie-Galante - Saint-Louis", coords: [-61.3203, 15.9541], type: "secondaire", territoire: "Guadeloupe", info: "Port secondaire de Marie-Galante"},
+            {nom: "La Désirade", coords: [-61.072092, 16.302795], type: "secondaire", territoire: "Guadeloupe", info: "Île isolée à l'est de la Guadeloupe"},
+            
+            // MARTINIQUE
+            {nom: "Fort-de-France", fullName: "Gare Maritime", coords: [-61.0731, 14.6037], type: "principal", territoire: "Martinique", compagnies: ["Blue Lines", "FRS Express"], destinations: ["Pointe du Bout", "Anse Mitan", "Guadeloupe", "Sainte-Lucie", "Dominique"], info: "Hub maritime principal de la Martinique"},
+            {nom: "Pointe du Bout", coords: [-61.066306, 14.541009], type: "secondaire", territoire: "Martinique", compagnies: ["Blue Lines"], info: "Navettes toutes les 30 min (5h40-22h)"},
+            {nom: "Anse Mitan", coords: [-61.0583, 14.5583], type: "secondaire", territoire: "Martinique", compagnies: ["Blue Lines"], info: "Navettes régulières depuis Fort-de-France"},
+            {nom: "Anse à l'Âne", coords: [-61.051182, 14.558302], type: "secondaire", territoire: "Martinique", compagnies: ["Blue Lines"], info: "Desserte de la baie des Trois-Îlets"},
+            {nom: "Case-Pilote", coords: [-61.138633, 14.640398], type: "secondaire", territoire: "Martinique", compagnies: ["Blue Lines"], info: "Navette maritime régulière"},
+            {nom: "Saint-Pierre", coords: [-61.1792, 14.7417], type: "principal", territoire: "Martinique", compagnies: ["FRS Express"], destinations: ["Guadeloupe"], info: "Ancienne capitale, liaison 2x/semaine vers Guadeloupe"},
+            
+            // SAINT-MARTIN / SINT MAARTEN
+            {nom: "Marigot", coords: [-63.0822, 18.0681], type: "principal", territoire: "Saint-Martin", compagnies: ["Voyager", "Service public"], destinations: ["Saint-Barthélemy", "Anguilla"], info: "Port principal de Saint-Martin français"},
+            {nom: "Philipsburg", coords: [-63.0458, 18.0179], type: "principal", territoire: "Sint Maarten", compagnies: ["Great Bay Express", "Dawn II", "Makana Ferry"], destinations: ["Saint-Barthélemy", "Saba", "Statia", "Saint-Kitts"], info: "Port principal de Sint Maarten"},
+            {nom: "Simpson Bay", coords: [-63.1089, 18.0409], type: "secondaire", territoire: "Sint Maarten", compagnies: ["Funtime", "Calypso", "The Edge"], destinations: ["Anguilla", "Saba"], info: "Port secondaire côté hollandais"},
+            
+            // ÎLES INTERNATIONALES
+            {nom: "Gustavia", coords: [-62.8498, 17.8962], type: "principal", territoire: "Saint-Barthélemy", compagnies: ["Voyager", "Great Bay Express"], info: "Port unique de Saint-Barthélemy"},
+            {nom: "Blowing Point", coords: [-63.0920, 18.1650], type: "principal", territoire: "Anguilla", info: "Port principal d'Anguilla, 9+ rotations/jour vers St-Martin"},
+            {nom: "Roseau", fullName: "Dominique - Roseau", coords: [-61.3881, 15.3017], type: "principal", territoire: "Dominique", compagnies: ["FRS Express"], info: "Ferry Terminal de Roseau, capitale de la Dominique"},
+            {nom: "Castries", fullName: "Sainte-Lucie - Castries", coords: [-60.9952, 14.0146], type: "principal", territoire: "Sainte-Lucie", compagnies: ["FRS Express"], info: "Port de Castries, Sainte-Lucie"},
+            {nom: "Fort Bay", fullName: "Saba - Fort Bay", coords: [-63.251032, 17.615957], type: "principal", territoire: "Saba", info: "Unique port de Saba"},
+            {nom: "Oranjestad", fullName: "Statia - Oranjestad", coords: [-62.9856, 17.4880], type: "principal", territoire: "Statia", info: "Port de St-Eustache (Sint Eustatius)"},
+            {nom: "Basseterre", fullName: "Saint-Kitts - Basseterre", coords: [-62.7167, 17.3026], type: "principal", territoire: "Saint-Kitts", info: "Port de Saint-Kitts"}
+        ];
+
+        // ===== DONNÉES - ROUTES =====
+        const routesData = [
+            // GUADELOUPE INTERNE
+            {id: "R-GPE-01", from: [-61.6500, 15.9667], to: [-61.5833, 15.8667], fromName: "Trois-Rivières", toName: "Terre-de-Haut", compagnie: "CTM Deher", duree: 20, prix: "22€ AS / 45-55€ AR", freq: "7j/7, 10+ rotations", telephone: "0590 92 06 39", site_web: "www.ctmdeher.com", navires: "4 vedettes (181-316 places)", couleur: "#9b59b6", thematic: "guadeloupe_interne", usage: "Tourisme + Résidents", weight: 4, rotationsWeek: 70},
+            {id: "R-GPE-02", from: [-61.6500, 15.9667], to: [-61.5833, 15.8667], fromName: "Trois-Rivières", toName: "Terre-de-Haut", compagnie: "Karu'Ferry", duree: 25, prix: "21€ AR", freq: "7j/7, 8h-18h15", site_web: "www.karuferry.com", particularite: "Propulsion solaire - éco-responsable", couleur: "#27ae60", thematic: "guadeloupe_interne", usage: "Tourisme + Résidents", weight: 3, rotationsWeek: 56},
+            {id: "R-GPE-03", from: [-61.6500, 15.9667], to: [-61.5833, 15.8667], fromName: "Trois-Rivières", toName: "Terre-de-Haut", compagnie: "Val'Ferry", prix: "35€ AR", freq: "7j/7, 9h & 17h", couleur: "#f39c12", thematic: "guadeloupe_interne", usage: "Tourisme", weight: 3, rotationsWeek: 14},
+            {id: "R-GPE-04", from: [-61.6500, 15.9667], to: [-61.5833, 15.8667], fromName: "Trois-Rivières", toName: "Terre-de-Haut", compagnie: "Navette Beatrix", duree: 28, prix: "23€", freq: "Multi-rotations", couleur: "#95a5a6", thematic: "guadeloupe_interne", usage: "Tourisme", weight: 3, rotationsWeek: 35},
+            
+            // Trois-Rivières vers Terre-de-Bas
+            {id: "R-GPE-05", from: [-61.6500, 15.9667], to: [-61.6167, 15.8500], fromName: "Trois-Rivières", toName: "Terre-de-Bas", compagnie: "CTM Deher", duree: 25, prix: "22€ AS", freq: "Régulier", couleur: "#9b59b6", thematic: "guadeloupe_interne", usage: "Résidents", weight: 3, rotationsWeek: 21},
+            {id: "R-GPE-06", from: [-61.6500, 15.9667], to: [-61.6167, 15.8500], fromName: "Trois-Rivières", toName: "Terre-de-Bas", compagnie: "Karu'Ferry", duree: 25, prix: "21€", freq: "7j/7", couleur: "#27ae60", thematic: "guadeloupe_interne", usage: "Résidents", weight: 3, rotationsWeek: 28},
+            {id: "R-GPE-07", from: [-61.6500, 15.9667], to: [-61.6167, 15.8500], fromName: "Trois-Rivières", toName: "Terre-de-Bas", compagnie: "Navette Beatrix", duree: 28, prix: "21€", freq: "Multi-rotations", couleur: "#95a5a6", thematic: "guadeloupe_interne", usage: "Résidents", weight: 3, rotationsWeek: 14},
+            
+            // Navette inter-Saintes (GRATUIT)
+            {id: "R-NAV-01", from: [-61.5833, 15.8667], to: [-61.6167, 15.8500], fromName: "Terre-de-Haut", toName: "Terre-de-Bas", compagnie: "Karu'Ferry", duree: 10, prix: "GRATUIT", freq: "Navette continue", couleur: "#27ae60", thematic: "navette", usage: "Service public", weight: 4, particularite: "Navette gratuite inter-îles", rotationsWeek: 84},
+            {id: "R-NAV-02", from: [-61.5833, 15.8667], to: [-61.6167, 15.8500], fromName: "Terre-de-Haut", toName: "Terre-de-Bas", compagnie: "Navette Beatrix", duree: 10, prix: "10€", freq: "Multi-rotations", couleur: "#95a5a6", thematic: "navette", usage: "Tourisme", weight: 2, rotationsWeek: 35},
+            
+            // Bouillante vers Les Saintes (saisonnier)
+            {id: "R-GPE-08", from: [-61.7667, 16.1333], to: [-61.5833, 15.8667], fromName: "Bouillante", toName: "Terre-de-Haut", compagnie: "Karu'Ferry", duree: 75, freq: "4j/sem (mar, ven, sam, dim)", service: "Saisonnier (juillet-août + nov-mars)", couleur: "#27ae60", thematic: "guadeloupe_interne", usage: "Tourisme saisonnier", weight: 2, rotationsWeek: 16},
+            {id: "R-GPE-09", from: [-61.7667, 16.1333], to: [-61.6167, 15.8500], fromName: "Bouillante", toName: "Terre-de-Bas", compagnie: "Karu'Ferry", duree: 85, freq: "4j/sem", service: "Saisonnier", couleur: "#27ae60", thematic: "guadeloupe_interne", usage: "Tourisme saisonnier", weight: 2, rotationsWeek: 16},
+            
+            // Pointe-à-Pitre vers Marie-Galante
+            {id: "R-GPE-10", from: [-61.5331, 16.2410], to: [-61.3200, 15.8850], fromName: "Pointe-à-Pitre", toName: "Marie-Galante", compagnie: "FRS Express", duree: 60, prix: "À partir de 29€ AR", freq: "Quotidien multi", horaires: "8h15, 17h15, 19h30 (dim)", telephone: "0825 35 90 00", site_web: "www.frs-express.com", couleur: "#e74c3c", thematic: "guadeloupe_interne", usage: "Tourisme + Résidents", weight: 3, rotationsWeek: 21},
+            {id: "R-GPE-11", from: [-61.5331, 16.2410], to: [-61.3200, 15.8850], fromName: "Pointe-à-Pitre", toName: "Marie-Galante", compagnie: "Val'Ferry", prix: "42€ AR (38,80€ web)", freq: "Quotidien", horaires: "Lun-Sam: 7h45, 12h30, 17h / Dim: 7h45, 16h45, 19h15", telephone: "0590 91 45 15", site_web: "www.valferry.fr", couleur: "#f39c12", thematic: "guadeloupe_interne", usage: "Résidents + Tourisme", weight: 3, rotationsWeek: 23},
+            
+            // Pointe-à-Pitre vers Les Saintes
+            {id: "R-GPE-12", from: [-61.5331, 16.2410], to: [-61.5833, 15.8667], fromName: "Pointe-à-Pitre", toName: "Les Saintes", compagnie: "FRS Express", duree: 60, prix: "29€+", freq: "Régulier", couleur: "#e74c3c", thematic: "guadeloupe_interne", usage: "Tourisme", weight: 3, rotationsWeek: 14},
+            {id: "R-GPE-13", from: [-61.5331, 16.2410], to: [-61.5833, 15.8667], fromName: "Pointe-à-Pitre", toName: "Les Saintes", compagnie: "Jeans for Freedom", duree: 60, prix: "24€", freq: "Mercredi uniquement", horaires: "Départ 8h / Retour 17h30", particularite: "8+ heures sur place", couleur: "#e67e22", thematic: "guadeloupe_interne", usage: "Excursion touristique", weight: 2, rotationsWeek: 1},
+            
+            // Saint-François vers Marie-Galante
+            {id: "R-GPE-14", from: [-61.2580, 16.2430], to: [-61.3203, 15.9541], fromName: "Saint-François", toName: "Marie-Galante (St-Louis)", compagnie: "Comadile", duree: 45, prix: "25€ AS", freq: "5j/sem (lun, mer, jeu, ven, sam)", horaires: "Départ 7h15 / Retour 16h30", telephone: "0590 30 02 10", site_web: "www.comadile.fr", couleur: "#16a085", thematic: "guadeloupe_interne", usage: "Résidents", weight: 3, rotationsWeek: 10},
+            {id: "R-GPE-15", from: [-61.2580, 16.2430], to: [-61.3203, 15.9541], fromName: "Saint-François", toName: "Marie-Galante (St-Louis)", compagnie: "Comatrile", duree: 45, freq: "Saisonnier (oct-juin + juil-août)", horaires: "Mar-ven: 7h15 / Sam-dim: 8h15", site_web: "www.comatrile.com", couleur: "#95a5a6", thematic: "guadeloupe_interne", usage: "Saisonnier", weight: 2, rotationsWeek: 6},
+            
+            // Saint-François vers La Désirade
+            {id: "R-GPE-16", from: [-61.2580, 16.2430], to: [-61.0167, 16.3167], fromName: "Saint-François", toName: "La Désirade", compagnie: "Comadile", duree: 45, prix: "30€ AS", freq: "7j/7, 2 traversées/jour", horaires: "8h00 & 17h00", telephone: "0590 30 02 10", particularite: "Seule liaison régulière vers La Désirade", couleur: "#16a085", thematic: "guadeloupe_interne", usage: "Service essentiel résidents", weight: 3, rotationsWeek: 14},
+            
+            // Saint-François vers Les Saintes (via MG)
+            {id: "R-GPE-17", from: [-61.2580, 16.2430], to: [-61.5833, 15.8667], fromName: "Saint-François", toName: "Les Saintes (via MG)", compagnie: "Comadile", duree: 90, prix: "25€ AS (Pack 3 îles: 108€)", freq: "5j/sem", particularite: "Via Marie-Galante", couleur: "#16a085", thematic: "guadeloupe_interne", usage: "Excursion multi-îles", weight: 2, dashArray: "5, 10", rotationsWeek: 5},
+            
+            // MARTINIQUE INTERNE
+            {id: "R-MTQ-01", from: [-61.0731, 14.6037], to: [-61.0667, 14.5500], fromName: "Fort-de-France", toName: "Pointe du Bout", compagnie: "Blue Lines", duree: 18, prix: "5€ AS / 7€ AR", freq: "Toutes les 30 min", horaires: "5h40-22h00", telephone: "0596 63 06 46", site_web: "www.bluelines.mq", couleur: "#34495e", thematic: "martinique_interne", usage: "Navette urbaine", weight: 4, rotationsWeek: 200},
+            {id: "R-MTQ-02", from: [-61.0731, 14.6037], to: [-61.0583, 14.5583], fromName: "Fort-de-France", toName: "Anse Mitan", compagnie: "Blue Lines", duree: 18, prix: "5€ AS / 7€ AR", freq: "Régulier", telephone: "0596 63 06 46", couleur: "#34495e", thematic: "martinique_interne", usage: "Navette urbaine", weight: 3, rotationsWeek: 70},
+            {id: "R-MTQ-03", from: [-61.0731, 14.6037], to: [-61.0700, 14.5700], fromName: "Fort-de-France", toName: "Anse à l'Âne", compagnie: "Blue Lines", duree: 18, prix: "5€ AS / 7€ AR", freq: "Régulier", telephone: "0596 63 06 46", couleur: "#34495e", thematic: "martinique_interne", usage: "Navette urbaine", weight: 3, rotationsWeek: 56},
+            {id: "R-MTQ-04", from: [-61.0731, 14.6037], to: [-61.1300, 14.6300], fromName: "Fort-de-France", toName: "Case-Pilote", compagnie: "Blue Lines", prix: "7,50€ AS", freq: "Régulier", telephone: "0596 63 06 46", couleur: "#34495e", thematic: "martinique_interne", usage: "Navette", weight: 3, rotationsWeek: 42},
+            
+            // SAINT-MARTIN ARCHIPEL
+            {id: "R-STM-01", from: [-63.0822, 18.0681], to: [-62.8498, 17.8962], fromName: "Marigot", toName: "Gustavia", compagnie: "Voyager", duree: 55, prix: "70€", freq: "27x/sem", couleur: "#1abc9c", thematic: "stmartin_interne", usage: "Tourisme", weight: 3, rotationsWeek: 27},
+            {id: "R-STM-02", from: [-63.0458, 18.0179], to: [-62.8498, 17.8962], fromName: "Philipsburg", toName: "Gustavia", compagnie: "Great Bay Express", duree: 45, prix: "75-120€", freq: "19x/sem", couleur: "#3498db", thematic: "stmartin_interne", usage: "Tourisme", weight: 3, rotationsWeek: 19},
+            {id: "R-STM-03", from: [-63.0822, 18.0681], to: [-63.0920, 18.1650], fromName: "Marigot", toName: "Anguilla", compagnie: "Service public", duree: 20, prix: "30$ + taxes", freq: "9x/j", couleur: "#95a5a6", thematic: "stmartin_interne", usage: "Service public", weight: 4, rotationsWeek: 63},
+            {id: "R-STM-04", from: [-63.1089, 18.0409], to: [-63.0920, 18.1650], fromName: "Simpson Bay", toName: "Anguilla", compagnie: "Funtime", duree: 20, prix: "75$+", freq: "9x/j", couleur: "#f39c12", thematic: "stmartin_interne", usage: "Tourisme", weight: 3, rotationsWeek: 63},
+            {id: "R-STM-05", from: [-63.1089, 18.0409], to: [-63.0920, 18.1650], fromName: "Simpson Bay", toName: "Anguilla", compagnie: "Calypso", duree: 20, prix: "Variable", freq: "Multi/j", couleur: "#e67e22", thematic: "stmartin_interne", usage: "Tourisme", weight: 3, rotationsWeek: 42},
+            {id: "R-STM-06", from: [-63.1089, 18.0409], to: [-63.2342, 17.6253], fromName: "Simpson Bay", toName: "Saba", compagnie: "The Edge", prix: "100$", freq: "3x/sem+", couleur: "#8e44ad", thematic: "stmartin_interne", usage: "Excursions", weight: 2, rotationsWeek: 3},
+            {id: "R-STM-07", from: [-63.0458, 18.0179], to: [-63.2342, 17.6253], fromName: "Philipsburg", toName: "Saba", compagnie: "Dawn II", freq: "SUSPENDU", couleur: "#95a5a6", thematic: "stmartin_interne", usage: "Suspendu", weight: 1, dashArray: "2, 6", rotationsWeek: 0},
+            
+            // LIAISONS RÉGIONALES
+            {id: "R-REG-01", from: [-61.5331, 16.2410], to: [-61.0731, 14.6037], fromName: "Pointe-à-Pitre", toName: "Fort-de-France", compagnie: "FRS Express", duree: 270, prix: "À partir de 99€ AR", freq: "4-7x/sem", telephone: "0825 35 90 00", site_web: "www.frs-express.com", particularite: "Escale possible Dominique", couleur: "#e74c3c", thematic: "regional", usage: "Inter-îles", weight: 4, rotationsWeek: 35},
+            {id: "R-REG-02", from: [-61.5331, 16.2410], to: [-61.0731, 14.6037], fromName: "Pointe-à-Pitre", toName: "Fort-de-France", compagnie: "Val'Ferry", prix: "82-118€", freq: "Régulier", couleur: "#f39c12", thematic: "regional", usage: "Inter-îles", weight: 3, rotationsWeek: 21},
+            {id: "R-REG-03", from: [-61.5331, 16.2410], to: [-61.1792, 14.7417], fromName: "Pointe-à-Pitre", toName: "Saint-Pierre", compagnie: "FRS Express", prix: "79€", freq: "2x/sem", particularite: "Tarif réduit via Saint-Pierre", couleur: "#e74c3c", thematic: "regional", usage: "Inter-îles", weight: 3, rotationsWeek: 2},
+            {id: "R-REG-04", from: [-61.5833, 15.8667], to: [-61.0731, 14.6037], fromName: "Les Saintes", toName: "Fort-de-France", compagnie: "FRS Express", freq: "Occasionnel", couleur: "#e74c3c", thematic: "regional", usage: "Occasionnel", weight: 2, dashArray: "5, 10", rotationsWeek: 2},
+            
+            // LIAISONS INTERNATIONALES
+            {id: "R-INT-01", from: [-61.5331, 16.2410], to: [-61.3881, 15.3017], fromName: "Pointe-à-Pitre", toName: "Dominique", compagnie: "FRS Express", duree: 135, prix: "99€", freq: "5-7x/sem", couleur: "#e74c3c", thematic: "international", usage: "International", weight: 3, rotationsWeek: 42},
+            {id: "R-INT-02", from: [-61.5331, 16.2410], to: [-60.9952, 14.0146], fromName: "Pointe-à-Pitre", toName: "Sainte-Lucie", compagnie: "FRS Express", duree: 405, freq: "4-5x/sem", couleur: "#e74c3c", thematic: "international", usage: "International", weight: 4, rotationsWeek: 32},
+            {id: "R-INT-03", from: [-61.0731, 14.6037], to: [-60.9952, 14.0146], fromName: "Fort-de-France", toName: "Sainte-Lucie", compagnie: "FRS Express", duree: 90, prix: "70-95€", freq: "5-12x/sem", couleur: "#e74c3c", thematic: "international", usage: "International", weight: 4, rotationsWeek: 60},
+            {id: "R-INT-04", from: [-61.0731, 14.6037], to: [-61.3881, 15.3017], fromName: "Fort-de-France", toName: "Dominique", compagnie: "FRS Express", freq: "Régulier", couleur: "#e74c3c", thematic: "international", usage: "International", weight: 3, rotationsWeek: 21},
+            {id: "R-STM-08", from: [-63.0458, 18.0179], to: [-62.9856, 17.4880], fromName: "Philipsburg", toName: "Statia", compagnie: "Makana Ferry", freq: "Excursions", couleur: "#d35400", thematic: "international", usage: "Excursions", weight: 2, rotationsWeek: 3},
+            {id: "R-STM-09", from: [-63.0458, 18.0179], to: [-62.7167, 17.3026], fromName: "Philipsburg", toName: "Saint-Kitts", compagnie: "Makana Ferry", freq: "Excursions", couleur: "#c0392b", thematic: "international", usage: "Excursions", weight: 2, rotationsWeek: 3},
+            
+            // NAVETTES URBAINES (supplémentaires)
+            {id: "R-NAV-03", from: [-61.0731, 14.6037], to: [-61.0583, 14.5583], fromName: "Fort-de-France", toName: "Anse Mitan", compagnie: "Navette Express", duree: 15, prix: "4€", freq: "Continue", couleur: "#17a2b8", thematic: "navette", usage: "Navette", weight: 3, rotationsWeek: 140},
+            {id: "R-NAV-04", from: [-61.0731, 14.6037], to: [-61.0700, 14.5700], fromName: "Fort-de-France", toName: "Anse à l'Âne", compagnie: "Navettes Martinique", duree: 12, prix: "4€", freq: "30 min", couleur: "#28a745", thematic: "navette", usage: "Navette", weight: 3, rotationsWeek: 98},
+            {id: "R-NAV-05", from: [-63.0822, 18.0681], to: [-63.0920, 18.1650], fromName: "Marigot", toName: "Anguilla", compagnie: "Ferry Rapid", duree: 15, prix: "25$", freq: "1h", couleur: "#fd7e14", thematic: "navette", usage: "Navette", weight: 3, rotationsWeek: 84}
+        ];
+
+        // ===== CONFIGURATION THÉMATIQUES =====
+        const themes = {
+            local: {
+                title: 'Liaisons Inter-îles Locales',
+                subtitle: 'Connexions au sein de chaque archipel',
+                filters: ['guadeloupe_interne', 'martinique_interne', 'stmartin_interne'],
+                colors: ['#27ae60', '#3498db', '#9b59b6', '#f39c12', '#16a085'],
+                center: [15.5, -61.3],
+                zoom: 9
+            },
+            regional: {
+                title: 'Liaisons Régionales Principales',
+                subtitle: 'Connexions entre les archipels français',
+                filters: ['regional'],
+                colors: ['#e74c3c', '#f39c12'],
+                center: [15.2, -61.0],
+                zoom: 8
+            },
+            international: {
+                title: 'Liaisons Internationales',
+                subtitle: 'Connexions vers les îles voisines',
+                filters: ['international'],
+                colors: ['#e74c3c', '#d35400', '#c0392b'],
+                center: [15.8, -61.5],
+                zoom: 7
+            },
+            navettes: {
+                title: 'Navettes Urbaines & Touristiques',
+                subtitle: 'Services de courte distance et transport urbain',
+                filters: ['navette'],
+                colors: ['#27ae60', '#95a5a6', '#17a2b8', '#28a745', '#fd7e14'],
+                center: [15.0, -61.8],
+                zoom: 10
+            },
+            overview: {
+                title: 'Vue d\'ensemble Complète',
+                subtitle: 'Analyse globale du réseau maritime',
+                filters: ['guadeloupe_interne', 'martinique_interne', 'stmartin_interne', 'regional', 'international', 'navette'],
+                colors: [],
+                center: [15.5, -61.3],
+                zoom: 8
+            }
+        };
+
+        // ===== CONFIGURATION COMPAGNIES =====
+        const companies = {
+            "FRS Express": { color: "#e74c3c", routes: 0 },
+            "CTM Deher": { color: "#9b59b6", routes: 0 },
+            "Karu'Ferry": { color: "#27ae60", routes: 0 },
+            "Val'Ferry": { color: "#f39c12", routes: 0 },
+            "Comadile": { color: "#16a085", routes: 0 },
+            "Blue Lines": { color: "#34495e", routes: 0 },
+            "Voyager": { color: "#1abc9c", routes: 0 },
+            "Great Bay Express": { color: "#3498db", routes: 0 },
+            "Navette Beatrix": { color: "#95a5a6", routes: 0 },
+            "Service public": { color: "#95a5a6", routes: 0 },
+            "Autres": { color: "#95a5a6", routes: 0 }
+        };
+        
+        // ===== INITIALISATION =====
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('📋 Initialisation de l\'interface...');
+            initializeMap();
+            initializeFilters();
+            initializeSearch();
+            loadGeoJSONRoutes(); // Charger les routes depuis export.geojson
+            switchTheme('local');
+
+            console.log('✅ Maritime Analytics V11 - Prêt !');
+        });
+
+        // ===== INITIALISATION CARTE =====
+        function initializeMap() {
+            map = L.map('map', {
+                center: CONFIG.center,
+                zoom: CONFIG.zoom,
+                minZoom: CONFIG.minZoom,
+                maxZoom: CONFIG.maxZoom,
+                zoomControl: true
+            });
+
+            // Couche de base
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                maxZoom: 18
+            }).addTo(map);
+
+            // Couche OpenSeaMap optionnelle
+            const seaLayer = L.tileLayer('https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png', {
+                attribution: '© <a href="https://openseamap.org">OpenSeaMap</a> contributors',
+                opacity: 0.6,
+                maxZoom: 18
+            });
+
+            // Initialiser les layers groups
+            layers.ports = L.layerGroup().addTo(map);
+            layers.routes = L.layerGroup().addTo(map);
+            layers.geojsonRoutes = L.layerGroup().addTo(map); // Couche pour les routes GeoJSON
+
+            console.log('🗺️ Carte initialisée avec succès');
+        }
+
+        // ===== CHARGEMENT DES ROUTES GEOJSON =====
+        function loadGeoJSONRoutes() {
+            console.log('📥 Chargement des routes depuis export.geojson...');
+
+            fetch('export.geojson')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(`✅ GeoJSON chargé: ${data.features.length} features`);
+
+                    // Filtrer les routes valides (non abandonnées)
+                    const validFeatures = data.features.filter(feature => {
+                        const props = feature.properties;
+                        return props.route === 'ferry' &&
+                               !props.abandoned &&
+                               !props.disused &&
+                               feature.geometry.type === 'LineString';
+                    });
+
+                    console.log(`📊 Routes valides: ${validFeatures.length}/${data.features.length}`);
+
+                    // Créer une couche GeoJSON avec style
+                    const geojsonLayer = L.geoJSON(validFeatures, {
+                        style: function(feature) {
+                            // Couleur selon le nom de la route
+                            const name = feature.properties.name || '';
+                            let color = '#3498db'; // Bleu par défaut
+
+                            // Colorier selon les destinations
+                            if (name.includes('Saintes')) color = '#9b59b6';
+                            else if (name.includes('Marie-Galante')) color = '#e74c3c';
+                            else if (name.includes('Dominique')) color = '#27ae60';
+                            else if (name.includes('Martinique')) color = '#f39c12';
+                            else if (name.includes('Saint-Barthélemy') || name.includes('St Barth')) color = '#1abc9c';
+
+                            return {
+                                color: color,
+                                weight: 3,
+                                opacity: 0.7
+                            };
+                        },
+                        onEachFeature: function(feature, layer) {
+                            // Créer un popup avec les informations de la route
+                            const props = feature.properties;
+                            let popupContent = `
+                                <div class="popup-header" style="background: #3498db;">
+                                    <div class="popup-title">${props.name || 'Route maritime'}</div>
+                                    <div class="popup-subtitle">Ferry</div>
+                                </div>
+                                <div class="popup-content">
+                            `;
+
+                            if (props.name) {
+                                popupContent += `
+                                    <div class="popup-row">
+                                        <span class="popup-label">Nom:</span>
+                                        <span class="popup-value">${props.name}</span>
+                                    </div>
+                                `;
+                            }
+
+                            if (props.operator) {
+                                popupContent += `
+                                    <div class="popup-row">
+                                        <span class="popup-label">Opérateur:</span>
+                                        <span class="popup-value">${props.operator}</span>
+                                    </div>
+                                `;
+                            }
+
+                            if (props.duration) {
+                                popupContent += `
+                                    <div class="popup-row">
+                                        <span class="popup-label">Durée:</span>
+                                        <span class="popup-value">${props.duration}</span>
+                                    </div>
+                                `;
+                            }
+
+                            if (props.foot) {
+                                popupContent += `
+                                    <div class="popup-row">
+                                        <span class="popup-label">Piétons:</span>
+                                        <span class="popup-value">${props.foot === 'yes' ? 'Autorisé' : 'Non autorisé'}</span>
+                                    </div>
+                                `;
+                            }
+
+                            if (props.motor_vehicle) {
+                                popupContent += `
+                                    <div class="popup-row">
+                                        <span class="popup-label">Véhicules:</span>
+                                        <span class="popup-value">${props.motor_vehicle === 'yes' ? 'Autorisé' : 'Non autorisé'}</span>
+                                    </div>
+                                `;
+                            }
+
+                            // Calculer la distance de la route
+                            const coords = feature.geometry.coordinates;
+                            if (coords.length >= 2) {
+                                const start = L.latLng(coords[0][1], coords[0][0]);
+                                const end = L.latLng(coords[coords.length-1][1], coords[coords.length-1][0]);
+                                const distance = (start.distanceTo(end) / 1000).toFixed(1); // en km
+
+                                popupContent += `
+                                    <div class="popup-row">
+                                        <span class="popup-label">Distance:</span>
+                                        <span class="popup-value">${distance} km</span>
+                                    </div>
+                                `;
+                            }
+
+                            popupContent += `
+                                    <div class="popup-row">
+                                        <span class="popup-label">Source:</span>
+                                        <span class="popup-value">OpenStreetMap</span>
+                                    </div>
+                                </div>
+                            `;
+
+                            layer.bindPopup(popupContent, {
+                                maxWidth: 320,
+                                className: 'modern-popup'
+                            });
+                        }
+                    });
+
+                    // Ajouter la couche à la carte
+                    layers.geojsonRoutes.addLayer(geojsonLayer);
+
+                    console.log('✅ Routes GeoJSON affichées sur la carte');
+                })
+                .catch(error => {
+                    console.error('❌ Erreur lors du chargement du GeoJSON:', error);
+                    alert('Erreur lors du chargement des routes maritimes. Veuillez vérifier que le fichier export.geojson est présent.');
+                });
+        }
+
+        // ===== CHANGEMENT DE THÈME =====
+        function switchTheme(themeId) {
+            console.log(`🎯 Changement vers thème: ${themeId}`);
+            
+            currentTheme = themeId;
+            const theme = themes[themeId];
+            
+            // Mettre à jour l'UI
+            updateThemeUI(theme);
+            
+            // Filtrer et afficher les données
+            filterAndDisplayData(theme);
+            
+            // Ajuster la vue carte
+            map.setView(theme.center, theme.zoom);
+            
+            console.log(`✅ Thème ${themeId} activé`);
+        }
+
+        function updateThemeUI(theme) {
+            // Mettre à jour les boutons
+            document.querySelectorAll('.theme-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelector(`[data-theme="${currentTheme}"]`).classList.add('active');
+            
+            // Mettre à jour le titre
+            document.getElementById('currentThemeTitle').textContent = theme.title;
+        }
+
+        function filterAndDisplayData(theme) {
+            // Vider les couches existantes
+            layers.ports.clearLayers();
+            layers.routes.clearLayers();
+            
+            // Filtrer les routes selon le thème
+            const filteredRoutes = routesData.filter(route => 
+                theme.filters.includes(route.thematic)
+            );
+            
+            // Calculer les statistiques
+            const stats = calculateThemeStats(filteredRoutes);
+            updateStatsDisplay(stats);
+            
+            // Afficher les ports concernés
+            const concernedPorts = getConcernedPorts(filteredRoutes);
+            concernedPorts.forEach(port => {
+                const marker = createPortMarker(port);
+                layers.ports.addLayer(marker);
+            });
+            
+            // Afficher les routes
+            filteredRoutes.forEach(route => {
+                const line = createRouteLine(route);
+                layers.routes.addLayer(line);
+            });
+            
+            // Mettre à jour les filtres
+            updateFilters(filteredRoutes, concernedPorts);
+            
+            console.log(`📊 Affichage: ${filteredRoutes.length} routes, ${concernedPorts.length} ports`);
+        }
+
+        function calculateThemeStats(routes) {
+            const ports = new Set();
+            const companies = new Set();
+            let totalRotations = 0;
+            
+            routes.forEach(route => {
+                // Compter les ports uniques
+                const fromPort = portsData.find(p => 
+                    Math.abs(p.coords[0] - route.from[0]) < 0.001 && 
+                    Math.abs(p.coords[1] - route.from[1]) < 0.001
+                );
+                const toPort = portsData.find(p => 
+                    Math.abs(p.coords[0] - route.to[0]) < 0.001 && 
+                    Math.abs(p.coords[1] - route.to[1]) < 0.001
+                );
+                
+                if (fromPort) ports.add(fromPort.nom);
+                if (toPort) ports.add(toPort.nom);
+                
+                // Compter les compagnies
+                companies.add(route.compagnie);
+                
+                // Calculer les rotations
+                totalRotations += route.rotationsWeek || 0;
+            });
+            
+            return {
+                routes: routes.length,
+                ports: ports.size,
+                companies: companies.size,
+                rotations: totalRotations
+            };
+        }
+
+        function updateStatsDisplay(stats) {
+            document.getElementById('visibleRoutes').textContent = stats.routes;
+            document.getElementById('visiblePorts').textContent = stats.ports;
+            document.getElementById('visibleCompanies').textContent = stats.companies;
+            
+            document.getElementById('themeRoutes').textContent = stats.routes;
+            document.getElementById('themePorts').textContent = stats.ports;
+            document.getElementById('themeCompanies').textContent = stats.companies;
+            document.getElementById('themeFrequency').textContent = stats.rotations > 0 ? `${stats.rotations}` : 'N/A';
+        }
+
+        function getConcernedPorts(routes) {
+            const portCoords = new Set();
+            const concernedPorts = [];
+            
+            routes.forEach(route => {
+                portCoords.add(`${route.from[0]},${route.from[1]}`);
+                portCoords.add(`${route.to[0]},${route.to[1]}`);
+            });
+            
+            portsData.forEach(port => {
+                const coordKey = `${port.coords[0]},${port.coords[1]}`;
+                if (portCoords.has(coordKey)) {
+                    concernedPorts.push(port);
+                }
+            });
+            
+            return concernedPorts;
+        }
+
+        // ===== CRÉATION DES ÉLÉMENTS CARTE =====
+        function createPortMarker(port) {
+            const isPrincipal = port.type === 'principal';
+            const size = isPrincipal ? 14 : 10;
+            const color = isPrincipal ? '#e74c3c' : '#3498db';
+            
+            const marker = L.circleMarker([port.coords[1], port.coords[0]], {
+                radius: size,
+                color: 'white',
+                weight: 3,
+                fillColor: color,
+                fillOpacity: 0.9
+            });
+            
+            // Popup moderne
+            const popupContent = createPortPopup(port);
+            marker.bindPopup(popupContent, {
+                maxWidth: 320,
+                className: 'modern-popup'
+            });
+            
+            return marker;
+        }
+
+        function createPortPopup(port) {
+            return `
+                <div class="popup-header">
+                    <div class="popup-title">${port.fullName || port.nom}</div>
+                    <div class="popup-subtitle">${port.territoire || 'Territoire non spécifié'}</div>
+                </div>
+                <div class="popup-content">
+                    ${port.type ? `<div class="popup-row">
+                        <span class="popup-label">Type:</span>
+                        <span class="popup-value">${port.type === 'principal' ? 'Port principal' : 'Port secondaire'}</span>
+                    </div>` : ''}
+                    ${port.compagnies ? `<div class="popup-row">
+                        <span class="popup-label">Compagnies:</span>
+                        <span class="popup-value">${port.compagnies.map(c => `<span class="company-tag">${c}</span>`).join(' ')}</span>
+                    </div>` : ''}
+                    ${port.destinations ? `<div class="popup-row">
+                        <span class="popup-label">Destinations:</span>
+                        <span class="popup-value">${port.destinations.join(', ')}</span>
+                    </div>` : ''}
+                    ${port.info ? `<div class="popup-row">
+                        <span class="popup-label">Info:</span>
+                        <span class="popup-value">${port.info}</span>
+                    </div>` : ''}
+                </div>
+            `;
+        }
+
+        function createRouteLine(route) {
+            const line = L.polyline([
+                [route.from[1], route.from[0]],
+                [route.to[1], route.to[0]]
+            ], {
+                color: route.couleur,
+                weight: route.weight || 3,
+                opacity: 0.8,
+                dashArray: route.dashArray || ''
+            });
+            
+            // Popup moderne pour les routes
+            const popupContent = createRoutePopup(route);
+            line.bindPopup(popupContent, {
+                maxWidth: 320,
+                className: 'modern-popup'
+            });
+            
+            return line;
+        }
+
+        function createRoutePopup(route) {
+            return `
+                <div class="popup-header" style="background: ${route.couleur};">
+                    <div class="popup-title">${route.fromName} → ${route.toName}</div>
+                    <div class="popup-subtitle">${route.compagnie}</div>
+                </div>
+                <div class="popup-content">
+                    ${route.duree ? `<div class="popup-row">
+                        <span class="popup-label">Durée:</span>
+                        <span class="popup-value">${route.duree} min</span>
+                    </div>` : ''}
+                    ${route.freq ? `<div class="popup-row">
+                        <span class="popup-label">Fréquence:</span>
+                        <span class="popup-value">${route.freq}</span>
+                    </div>` : ''}
+                    ${route.prix ? `<div class="popup-row">
+                        <span class="popup-label">Tarif:</span>
+                        <span class="popup-value">${route.prix}</span>
+                    </div>` : ''}
+                    ${route.usage ? `<div class="popup-row">
+                        <span class="popup-label">Usage:</span>
+                        <span class="popup-value">${route.usage}</span>
+                    </div>` : ''}
+                    ${route.telephone ? `<div class="popup-row">
+                        <span class="popup-label">Tél:</span>
+                        <span class="popup-value">${route.telephone}</span>
+                    </div>` : ''}
+                    ${route.particularite ? `<div class="popup-row">
+                        <span class="popup-label">Particularité:</span>
+                        <span class="popup-value" style="color: #e74c3c;">${route.particularite}</span>
+                    </div>` : ''}
+                </div>
+            `;
+        }
+
+        // ===== FILTRES =====
+        function initializeFilters() {
+            console.log('🎛️ Initialisation des filtres...');
+            // Les filtres seront mis à jour dynamiquement par thème
+        }
+
+        function updateFilters(routes, ports) {
+            updateTerritoryFilters(ports);
+            updateCompanyFilters(routes);
+            updateLegend(routes);
+        }
+
+        function updateTerritoryFilters(ports) {
+            const territories = [...new Set(ports.map(p => p.territoire))].filter(Boolean);
+            const grid = document.getElementById('territoryFilterGrid');
+            
+            grid.innerHTML = territories.map(territory => `
+                <div class="filter-item active" onclick="toggleTerritoryFilter('${territory}')">
+                    <div class="filter-checkbox"></div>
+                    <span class="filter-label">${territory}</span>
+                    <span class="filter-count">${ports.filter(p => p.territoire === territory).length}</span>
+                </div>
+            `).join('');
+        }
+
+        function updateCompanyFilters(routes) {
+            const companyCounts = {};
+            routes.forEach(route => {
+                companyCounts[route.compagnie] = (companyCounts[route.compagnie] || 0) + 1;
+            });
+            
+            const grid = document.getElementById('companyFilterGrid');
+            grid.innerHTML = Object.entries(companyCounts).map(([company, count]) => `
+                <div class="filter-item active" onclick="toggleCompanyFilter('${company}')">
+                    <div class="filter-checkbox"></div>
+                    <span class="filter-label">${company}</span>
+                    <div class="color-indicator" style="background: ${companies[company]?.color || '#95a5a6'};"></div>
+                    <span class="filter-count">${count}</span>
+                </div>
+            `).join('');
+        }
+
+        function updateLegend(routes) {
+            const legendItems = document.getElementById('legendItems');
+            const uniqueCompanies = [...new Set(routes.map(r => r.compagnie))];
+            
+            legendItems.innerHTML = `
+                <div class="legend-item">
+                    <div class="legend-marker" style="background: #e74c3c;"></div>
+                    <span>Ports principaux</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-marker" style="background: #3498db;"></div>
+                    <span>Ports secondaires</span>
+                </div>
+                ${uniqueCompanies.map(company => `
+                    <div class="legend-item">
+                        <div class="legend-line" style="background: ${companies[company]?.color || '#95a5a6'};"></div>
+                        <span>${company}</span>
+                    </div>
+                `).join('')}
+            `;
+        }
+
+        // ===== RECHERCHE =====
+        function initializeSearch() {
+            const searchInput = document.getElementById('searchInput');
+            let searchTimeout;
+            
+            searchInput.addEventListener('input', function(e) {
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(() => {
+                    performSearch(e.target.value);
+                }, 300);
+            });
+        }
+
+        function performSearch(query) {
+            if (!query.trim()) {
+                // Réinitialiser l'affichage
+                switchTheme(currentTheme);
+                return;
+            }
+            
+            query = query.toLowerCase();
+            
+            // Rechercher dans les ports
+            const matchingPorts = portsData.filter(port => 
+                port.nom.toLowerCase().includes(query) ||
+                (port.fullName && port.fullName.toLowerCase().includes(query)) ||
+                (port.territoire && port.territoire.toLowerCase().includes(query))
+            );
+            
+            // Rechercher dans les routes
+            const matchingRoutes = routesData.filter(route =>
+                route.fromName.toLowerCase().includes(query) ||
+                route.toName.toLowerCase().includes(query) ||
+                route.compagnie.toLowerCase().includes(query)
+            );
+            
+            // Mettre en évidence les résultats
+            highlightSearchResults(matchingPorts, matchingRoutes);
+        }
+
+        function highlightSearchResults(ports, routes) {
+            // Effacer les couches actuelles
+            layers.ports.clearLayers();
+            layers.routes.clearLayers();
+            
+            // Afficher les résultats avec mise en évidence
+            ports.forEach(port => {
+                const marker = createPortMarker(port);
+                marker.setStyle({ color: '#ff6b6b', weight: 4 });
+                layers.ports.addLayer(marker);
+            });
+            
+            routes.forEach(route => {
+                const line = createRouteLine(route);
+                line.setStyle({ color: '#ff6b6b', weight: 5 });
+                layers.routes.addLayer(line);
+            });
+            
+            // Ajuster la vue si des résultats
+            if (ports.length > 0 || routes.length > 0) {
+                const allCoords = [
+                    ...ports.map(p => [p.coords[1], p.coords[0]]),
+                    ...routes.flatMap(r => [[r.from[1], r.from[0]], [r.to[1], r.to[0]]])
+                ];
+                
+                if (allCoords.length > 0) {
+                    const bounds = L.latLngBounds(allCoords);
+                    map.fitBounds(bounds, { padding: [20, 20] });
+                }
+            }
+        }
+
+        // ===== FONCTIONS UTILITAIRES =====
+        function togglePanel() {
+            const panel = document.getElementById('controlPanel');
+            const toggle = panel.querySelector('.panel-toggle');
+            
+            isPanelCollapsed = !isPanelCollapsed;
+            panel.classList.toggle('collapsed');
+            toggle.textContent = isPanelCollapsed ? '+' : '−';
+        }
+
+        function toggleFullscreen() {
+            isFullscreen = !isFullscreen;
+            document.body.classList.toggle('fullscreen-mode');
+            
+            // Redimensionner la carte
+            setTimeout(() => map.invalidateSize(), 300);
+        }
+
+        function exportData() {
+            const theme = themes[currentTheme];
+            const filteredRoutes = routesData.filter(route => 
+                theme.filters.includes(route.thematic)
+            );
+            
+            const csvContent = generateCSV(filteredRoutes);
+            downloadCSV(csvContent, `maritime_analytics_${currentTheme}_${new Date().toISOString().split('T')[0]}.csv`);
+        }
+
+        function generateCSV(routes) {
+            const headers = ['Origine', 'Destination', 'Compagnie', 'Durée (min)', 'Fréquence', 'Prix', 'Usage', 'Rotations/semaine'];
+            const rows = routes.map(route => [
+                route.fromName,
+                route.toName,
+                route.compagnie,
+                route.duree || '',
+                route.freq || '',
+                route.prix || '',
+                route.usage || '',
+                route.rotationsWeek || ''
+            ]);
+            
+            return [headers, ...rows].map(row => 
+                row.map(cell => `"${cell}"`).join(',')
+            ).join('\n');
+        }
+
+        function downloadCSV(content, filename) {
+            const blob = new Blob([content], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = filename;
+            link.click();
+        }
+
+        function showAbout() {
+            alert(`Maritime Analytics V11
+            
+📊 Analyse exhaustive du transport maritime aux Antilles
+🗓️ Données 2025 - ${routesData.length} routes analysées
+🏝️ Couverture: Guadeloupe, Martinique, Saint-Martin
+🚢 ${Object.keys(companies).length} compagnies référencées
+
+Développé pour les aménageurs et décideurs locaux
+Version optimisée pour la lisibilité et l'analyse thématique`);
+        }
+
+        // ===== FILTRES INTERACTIFS =====
+        function toggleTerritoryFilter(territory) {
+            const filterItem = event.target.closest('.filter-item');
+            filterItem.classList.toggle('active');
+            
+            // Logique de filtrage à implémenter selon besoins
+            console.log(`Toggle territoire: ${territory}`);
+        }
+
+        function toggleCompanyFilter(company) {
+            const filterItem = event.target.closest('.filter-item');
+            filterItem.classList.toggle('active');
+            
+            // Logique de filtrage à implémenter selon besoins
+            console.log(`Toggle compagnie: ${company}`);
+        }
+
+        // ===== EXPOSITION DES FONCTIONS GLOBALES =====
+        window.switchTheme = switchTheme;
+        window.togglePanel = togglePanel;
+        window.toggleFullscreen = toggleFullscreen;
+        window.exportData = exportData;
+        window.showAbout = showAbout;
+        window.toggleTerritoryFilter = toggleTerritoryFilter;
+        window.toggleCompanyFilter = toggleCompanyFilter;
+        
+    </script>
+</body>
+</html>

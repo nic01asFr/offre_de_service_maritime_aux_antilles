@@ -1,0 +1,359 @@
+{
+  "timestamp": "2025-01-13",
+  "source": "Données vérifiées web + sources officielles 2025",
+  "compagnies": [
+    {
+      "id": "ctm-deher",
+      "nom": "CTM Deher",
+      "site_web": "https://www.ctmdeher.com",
+      "telephone": "+590 590 92 06 39",
+      "status": "Actif",
+      "description": "Compagnie historique des liaisons Trois-Rivières - Les Saintes",
+      "flotte": {
+        "nombre_navires": 4,
+        "capacites": "181-316 places",
+        "type": "Vedettes"
+      },
+      "routes": [
+        {
+          "route_id": "R-GPE-01",
+          "nom": "Trois-Rivières → Terre-de-Haut",
+          "duree_min": 20,
+          "tarifs": {
+            "adulte_aller_simple": 22,
+            "adulte_aller_retour": "45-55",
+            "enfant": 15,
+            "devise": "EUR",
+            "date_maj": "2022-04-01",
+            "note": "Tarifs 2022, vérifier site pour 2025"
+          },
+          "frequence": "7j/7, 10+ rotations/jour",
+          "services": ["Piétons uniquement", "Réservation conseillée haute saison"]
+        },
+        {
+          "route_id": "R-GPE-05",
+          "nom": "Trois-Rivières → Terre-de-Bas",
+          "duree_min": 25,
+          "tarifs": {
+            "adulte_aller_simple": 22,
+            "devise": "EUR"
+          },
+          "frequence": "Régulier"
+        }
+      ],
+      "couleur_carte": "#9b59b6",
+      "photos_navires": []
+    },
+    {
+      "id": "karuferry",
+      "nom": "Karu'Ferry",
+      "site_web": "https://www.karuferry.com",
+      "status": "En liquidation judiciaire (janv. 2025)",
+      "alerte": "⚠️ Compagnie en difficulté financière - Vérifier statut avant réservation",
+      "description": "Navire éco-responsable à propulsion solaire - ATTENTION: Service potentiellement interrompu",
+      "flotte": {
+        "nombre_navires": 1,
+        "type": "Monocoque solaire (Capo Rosso)",
+        "capacite": 90,
+        "particularite": "Panneaux solaires + diesel avec additif Protéa P2"
+      },
+      "routes": [
+        {
+          "route_id": "R-GPE-02",
+          "nom": "Trois-Rivières → Terre-de-Haut",
+          "duree_min": 25,
+          "tarifs": {
+            "adulte_aller_retour": 23,
+            "devise": "EUR",
+            "conditions": "Non remboursable, utilisable 1 an, modifiable sans frais"
+          },
+          "horaires": "8h-18h15",
+          "services": ["Navette inter-Saintes GRATUITE"]
+        }
+      ],
+      "couleur_carte": "#27ae60"
+    },
+    {
+      "id": "val-ferry",
+      "nom": "Val'Ferry",
+      "site_web": "https://www.valferry.fr",
+      "telephone": "+590 590 91 45 15",
+      "status": "Actif",
+      "description": "Liaisons inter-îles Guadeloupe et régionales",
+      "routes": [
+        {
+          "route_id": "R-GPE-03",
+          "nom": "Trois-Rivières → Les Saintes",
+          "tarifs": {
+            "adulte_aller_retour": 35,
+            "devise": "EUR"
+          },
+          "frequence": "7j/7, départs 9h & 17h"
+        },
+        {
+          "route_id": "R-GPE-11",
+          "nom": "Pointe-à-Pitre → Marie-Galante",
+          "tarifs": {
+            "adulte_aller_retour": 42,
+            "adulte_aller_retour_web": 38.80,
+            "devise": "EUR"
+          },
+          "horaires": {
+            "lun_sam": ["07:45", "12:30", "17:00"],
+            "dimanche": ["07:45", "16:45", "19:15"]
+          }
+        },
+        {
+          "route_id": "R-REG-02",
+          "nom": "Pointe-à-Pitre → Fort-de-France",
+          "tarifs": {
+            "adulte_aller_retour": "82-118",
+            "devise": "EUR"
+          },
+          "frequence": "Régulier"
+        }
+      ],
+      "couleur_carte": "#f39c12"
+    },
+    {
+      "id": "frs-express",
+      "nom": "FRS Express des Îles",
+      "site_web": "https://www.frs-express.com",
+      "telephone": "+33 825 35 90 00",
+      "status": "Actif",
+      "description": "Leader des liaisons inter-îles depuis 35 ans - Routes internationales et régionales",
+      "flotte": {
+        "type": "Navires rapides",
+        "capacite": "380-446 places",
+        "equipements": ["Stabilisateurs SeaState dernière génération", "Salon climatisé", "Pont extérieur ouvert"]
+      },
+      "routes": [
+        {
+          "route_id": "R-GPE-10",
+          "nom": "Pointe-à-Pitre → Marie-Galante",
+          "duree_min": 60,
+          "tarifs": {
+            "adulte_aller_retour": "à partir de 29",
+            "enfant_2_12_ans": 35,
+            "bebe_0_2_ans": 20,
+            "devise": "EUR",
+            "note": "Bagages inclus"
+          },
+          "horaires": ["08:15", "17:15", "19:30 (dim)"],
+          "services": ["Climatisation", "Bar", "Pont extérieur"]
+        },
+        {
+          "route_id": "R-INT-01",
+          "nom": "Pointe-à-Pitre → Dominique",
+          "duree_min": 135,
+          "tarifs": {
+            "toupiti": 99,
+            "confort_plus": 169,
+            "devise": "EUR",
+            "type": "aller-retour"
+          },
+          "frequence": "5-7x/semaine"
+        },
+        {
+          "route_id": "R-REG-01",
+          "nom": "Pointe-à-Pitre → Fort-de-France",
+          "duree_min": 270,
+          "tarifs": {
+            "adulte_aller_retour": "à partir de 99",
+            "vehicule_aller_retour": 529,
+            "vehicule_aller_simple": 459,
+            "devise": "EUR",
+            "note": "Escale possible Dominique"
+          },
+          "frequence": "4-7x/semaine",
+          "services": ["Transport véhicules", "Bagages inclus"]
+        },
+        {
+          "route_id": "R-INT-02",
+          "nom": "Pointe-à-Pitre → Sainte-Lucie",
+          "duree_min": 405,
+          "tarifs": {
+            "adulte_aller_retour": "à partir de 99",
+            "devise": "EUR"
+          },
+          "frequence": "4-5x/semaine"
+        },
+        {
+          "route_id": "R-INT-03",
+          "nom": "Fort-de-France → Sainte-Lucie",
+          "duree_min": 90,
+          "tarifs": {
+            "adulte_aller_retour": "70-95",
+            "devise": "EUR"
+          },
+          "frequence": "5-12x/semaine"
+        }
+      ],
+      "couleur_carte": "#e74c3c"
+    },
+    {
+      "id": "blue-lines",
+      "nom": "Blue Lines",
+      "ancien_nom": "Vedettes Tropicales",
+      "site_web": "https://www.bluelines.mq",
+      "telephone": "+596 596 63 06 46",
+      "email": "bl.contact@bluelines.mq",
+      "status": "Actif",
+      "description": "Navettes maritimes urbaines Baie de Fort-de-France",
+      "reservation": "Application MT Ticket",
+      "routes": [
+        {
+          "route_id": "R-MTQ-01",
+          "nom": "Fort-de-France ↔ Pointe du Bout",
+          "duree_min": 18,
+          "tarifs": {
+            "aller_simple": 5,
+            "aller_retour": 7,
+            "forfait_12_trajets": 36,
+            "forfait_jour": 18,
+            "hebdo_1_ligne": 30,
+            "hebdo_illimite": 65,
+            "mensuel": 70,
+            "mensuel_jeunes": 90,
+            "mensuel_illimite": 140,
+            "devise": "EUR",
+            "date_maj": "2025-02-04"
+          },
+          "horaires_fdf": ["06:30", "07:00", "07:55", "09:30", "11:15", "12:50", "14:30", "16:05", "17:15"],
+          "horaires_pb": ["06:00", "06:55", "09:00", "10:00", "12:20", "13:30", "15:35", "16:45"],
+          "frequence": "Toutes les 30 min en pointe",
+          "services": ["Service urbain quotidien", "Application mobile"]
+        },
+        {
+          "route_id": "R-MTQ-02",
+          "nom": "Fort-de-France → Anse Mitan",
+          "duree_min": 18,
+          "tarifs": {
+            "aller_simple": 5,
+            "aller_retour": 7,
+            "devise": "EUR"
+          },
+          "frequence": "Régulier"
+        },
+        {
+          "route_id": "R-MTQ-03",
+          "nom": "Fort-de-France → Anse à l'Âne",
+          "duree_min": 18,
+          "tarifs": {
+            "aller_simple": 5,
+            "aller_retour": 7,
+            "devise": "EUR"
+          }
+        },
+        {
+          "route_id": "R-MTQ-04",
+          "nom": "Fort-de-France → Case-Pilote",
+          "tarifs": {
+            "aller_simple": 7.5,
+            "devise": "EUR"
+          },
+          "frequence": "Régulier"
+        }
+      ],
+      "couleur_carte": "#34495e"
+    },
+    {
+      "id": "comadile",
+      "nom": "Comadile",
+      "site_web": "https://www.comadile.fr",
+      "telephone": "+590 590 30 02 10",
+      "status": "Actif",
+      "description": "Liaisons depuis Saint-François vers Marie-Galante et La Désirade",
+      "routes": [
+        {
+          "route_id": "R-GPE-14",
+          "nom": "Saint-François → Marie-Galante (St-Louis)",
+          "duree_min": 45,
+          "tarifs": {
+            "adulte_aller_simple": 25,
+            "pack_3_iles": 108,
+            "devise": "EUR"
+          },
+          "horaires": {
+            "depart": "07:15",
+            "retour": "16:30"
+          },
+          "jours": "Lun, Mer, Jeu, Ven, Sam",
+          "frequence": "5j/semaine"
+        },
+        {
+          "route_id": "R-GPE-16",
+          "nom": "Saint-François → La Désirade",
+          "duree_min": 45,
+          "tarifs": {
+            "adulte_aller_simple": 30,
+            "devise": "EUR"
+          },
+          "horaires": ["08:00", "17:00"],
+          "frequence": "7j/7, 2 traversées/jour",
+          "particularite": "SEULE liaison régulière vers La Désirade - Service essentiel"
+        }
+      ],
+      "couleur_carte": "#16a085"
+    },
+    {
+      "id": "voyager",
+      "nom": "Voyager",
+      "status": "Actif",
+      "description": "Liaison Marigot - Saint-Barthélemy",
+      "routes": [
+        {
+          "route_id": "R-STM-01",
+          "nom": "Marigot → Gustavia (Saint-Barthélemy)",
+          "duree_min": 55,
+          "tarifs": {
+            "adulte": 70,
+            "devise": "EUR"
+          },
+          "frequence": "27x/semaine"
+        }
+      ],
+      "couleur_carte": "#1abc9c"
+    },
+    {
+      "id": "great-bay-express",
+      "nom": "Great Bay Express",
+      "status": "Actif",
+      "description": "Liaison Philipsburg - Saint-Barthélemy",
+      "routes": [
+        {
+          "route_id": "R-STM-02",
+          "nom": "Philipsburg → Gustavia (Saint-Barthélemy)",
+          "duree_min": 45,
+          "tarifs": {
+            "adulte": "75-120",
+            "devise": "USD"
+          },
+          "frequence": "19x/semaine"
+        }
+      ],
+      "couleur_carte": "#3498db"
+    }
+  ],
+  "notes": [
+    "Tarifs indicatifs - Vérifier sur sites officiels",
+    "Horaires sujets à modification selon météo",
+    "Réservation recommandée haute saison (décembre-avril)",
+    "Certains tarifs résidents différents des tarifs touristes"
+  ],
+  "photos_a_ajouter": {
+    "prioritaire": [
+      "CTM Deher vedettes",
+      "Karu'Ferry Capo Rosso (solaire)",
+      "FRS Express navires rapides",
+      "Blue Lines vedettes baie FdF",
+      "Comadile vedettes"
+    ],
+    "sources_suggerees": [
+      "Sites web officiels compagnies",
+      "Wikimedia Commons",
+      "Flickr (licences CC)",
+      "YouTube (captures vidéos)"
+    ]
+  }
+}

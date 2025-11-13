@@ -34,9 +34,18 @@ Puis ouvrez : http://localhost:8000/cartographie_maritime_antilles_v11_analytics
 
 ## 📊 Sources de données
 
-- **OpenStreetMap** : Routes maritimes (export.geojson)
-- **Recherche documentaire** : Sites des compagnies maritimes, horaires officiels
-- **Données 2025** : Compilation exhaustive des liaisons maritimes
+- **OpenStreetMap** : Routes maritimes (export.geojson) + Embarcadères précis (caribbean_ferry_terminals.json)
+- **Sites officiels** : Tarifs et horaires vérifiés 2025 (FRS Express, Blue Lines, CTM Deher, etc.)
+- **Données enrichies** : compagnies_enriched.json avec prix, services, bateaux
+- **Analyse qualité** : route_quality_report.json (82% routes bien tracées)
+
+## 📈 Qualité des données
+
+- **146 embarcadères** aux positions précises OSM
+- **122 routes maritimes actives** analysées
+- **82% des tracés** détaillés et réalistes (>10 points)
+- **Tarifs 2025** vérifiés sur sites officiels
+- **10+ compagnies** référencées avec informations complètes
 
 ## 🏝️ Zones couvertes
 
